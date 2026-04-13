@@ -8,7 +8,7 @@
 // ─── Config ──────────────────────────────────────
 const CONFIG = {
   PER_PAGE:    8,
-  WHATSAPP:    '5551993552806',
+  WHATSAPP:    '5551998709850',
   FALLBACK_IMG: 'https://placehold.co/600x400/111111/13d203?text=Imagem+Indisponível',
 };
 
