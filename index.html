@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- SEO -->
+  <title>Sawce Company — Importados com Estilo</title>
+  <meta name="description" content="Importadora de produtos exclusivos da China. Tênis, camisas, tech, anime e muito mais com o melhor custo-benefício do Brasil." />
+  <meta name="keywords"    content="importados, china, tênis, camisas, anime, tech, streetwear, sawce company" />
+  <meta name="author"      content="Sawce Company" />
+
+  <!-- Open Graph (compartilhamento em redes sociais) -->
+  <meta property="og:title"       content="Sawce Company — Importados com Estilo" />
+  <meta property="og:description" content="Produtos exclusivos importados direto da China. Estilo, qualidade e preço que cabem no bolso." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:image"       content="https://i.imgur.com/1dpBOJX.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.imgur.com/BZ3F3EX.jpeg" type="image/jpeg" />
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (utilitários de layout responsivo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Estilos da Sawce Company -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════ HEADER ═══════════════════════ -->
+  <header>
+    <div class="header-inner">
+      <a href="#hero">
+        <img src="https://i.imgur.com/1dpBOJX.png" alt="Sawce Company" class="header-logo" />
+      </a>
+
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
+        <a href="#hero"       class="nav-link">Home</a>
+        <a href="#products"   class="nav-link">Produtos</a>
+        <a href="#quem-somos" class="nav-link">Quem Somos</a>
+        <a href="#quem-somos" class="nav-link">Contato</a>
+      </nav>
+
+      <a href="#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
+      <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
+    </div>
+
+    <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
+      <a href="#hero">Home</a>
+      <a href="#products">Produtos</a>
+      <a href="#quem-somos">Quem Somos</a>
+      <a href="#quem-somos">Contato</a>
+    </nav>
+  </header>
+
+  <!-- ═══════════════════════ TICKER ═══════════════════════ -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="ticker-item">🐉 Importados Direto da China</span>
+      <span class="ticker-item">★ Frete para Todo Brasil</span>
+      <span class="ticker-item">🔥 Novidades Todo Mês</span>
+      <span class="ticker-item">✅ Qualidade Garantida</span>
+      <span class="ticker-item">🐉 Sawce Company</span>
+      <span class="ticker-item">★ Seu Estilo, Nossa Missão</span>
+      <span class="ticker-item">🔥 Mais de 110 Produtos</span>
+      <span class="ticker-item">✅ Atendimento Via WhatsApp</span>
+      <!-- duplicado para loop contínuo -->
+      <span class="ticker-item">🐉 Importados Direto da China</span>
+      <span class="ticker-item">★ Frete para Todo Brasil</span>
+      <span class="ticker-item">🔥 Novidades Todo Mês</span>
+      <span class="ticker-item">✅ Qualidade Garantida</span>
+      <span class="ticker-item">🐉 Sawce Company</span>
+      <span class="ticker-item">★ Seu Estilo, Nossa Missão</span>
+      <span class="ticker-item">🔥 Mais de 110 Produtos</span>
+      <span class="ticker-item">✅ Atendimento Via WhatsApp</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ HERO ═══════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"       aria-hidden="true"></div>
+    <div class="hero-gradient" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-badge fade-up">🐉 Importadora Oficial — Fundada em 2024</p>
+      <h1 class="hero-title fade-up delay-1">A SUA<br><span>IMPORTADORA</span></h1>
+      <p class="hero-sub fade-up delay-2">
+        Produtos exclusivos importados direto da China.<br>
+        Estilo, qualidade e preço que cabem no bolso.
+      </p>
+      <div class="hero-buttons fade-up delay-3">
+        <a href="#products"   class="btn-primary">Ver Catálogo</a>
+        <a href="#quem-somos" class="btn-ghost">Quem Somos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ STATS ═══════════════════════ -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-num">110+</div>
+        <div class="stat-label">Produtos</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">Clientes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Satisfação</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Categorias</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ PRODUCTS ═══════════════════════ -->
+  <section id="products">
+    <div class="products-inner">
+
+      <div class="products-header">
+        <span class="section-tag">Catálogo</span>
+        <h2 class="section-title">PRODUTOS<br><span style="color:var(--green);">MAIS QUENTES</span></h2>
+      </div>
+
+      <!-- Filtros de categoria -->
+      <div class="filters" id="filters" role="group" aria-label="Filtrar por categoria">
+        <button class="filter-pill active" data-cat="all">Todos</button>
+        <button class="filter-pill" data-cat="tenis">Tênis</button>
+        <button class="filter-pill" data-cat="camisas">Camisas</button>
+        <button class="filter-pill" data-cat="anime">Anime &amp; Cultura</button>
+        <button class="filter-pill" data-cat="tech">Tech &amp; Acessórios</button>
+        <button class="filter-pill" data-cat="esporte">Esporte</button>
+      </div>
+
+      <!-- Grade de produtos (preenchida via JS) -->
+      <div class="products-grid" id="products-grid" aria-live="polite"></div>
+
+      <!-- Paginação (preenchida via JS) -->
+      <div id="pagination-wrap" class="pagination-wrap"></div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ QUEM SOMOS ═══════════════════════ -->
+  <section id="quem-somos">
+    <div class="about-inner">
+
+      <div>
+        <span class="section-tag">Nossa História</span>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">
+          CONHEÇA OS<br><span style="color:var(--green);">ROSTOS SAWCE</span>
+        </h2>
+        <p style="color:var(--muted);line-height:1.8;font-size:.95rem;">
+          É os guri do portão 7, caraio — não tem como! Grêmio, torcida da geral, os guris da popular.
+          Fundamos a Sawce Company para trazer produto importado de qualidade pro povo,
+          sem enrolação e com preço justo.
+        </p>
+        <div class="about-quote">
+          <p>
+            "Nosso nome é um trocadilho com 'Sauce' — gíria inglesa que significa ter estilo,
+            personalidade marcante. É exatamente o que queremos que você sinta ao usar nossos produtos."
+          </p>
+        </div>
+      </div>
+
+      <div class="members-list">
+        <div class="member-card">
+          <img src="https://i.imgur.com/4HKAzRB.jpeg" alt="Foto de Thiago Leal" class="member-avatar" />
+          <div>
+            <div class="member-name">Thiago Leal</div>
+            <div class="member-role">Sócio Fundador · Diretor Geral</div>
+            <div class="member-phone">(51) 99355-2806</div>
+          </div>
+        </div>
+        <div class="member-card">
+          <img src="https://i.imgur.com/XLHIc1U.jpeg" alt="Foto de Marvin Santos" class="member-avatar" />
+          <div>
+            <div class="member-name">Marvin Santos</div>
+            <div class="member-role">Sócio · Marketing &amp; Tecnologia</div>
+            <div class="member-phone">(51) 99870-9850</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">SAWCE COMPANY</div>
+        <div class="footer-tagline">Importados com estilo desde 2024</div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/sawce.company" target="_blank" rel="noopener noreferrer" class="social-btn">
+          📸 Instagram
+        </a>
+        <a href="#" class="social-btn">
+          🎵 TikTok
+        </a>
+        <a href="https://wa.me/5551993552806" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--green">
+          💬 WhatsApp
+        </a>
+      </div>
+
+      <p class="footer-copy">© 2025 Sawce Company. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts — produtos primeiro, lógica depois -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
