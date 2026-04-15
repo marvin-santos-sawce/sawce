@@ -34,7 +34,7 @@ const PRODUCTS = [
   {
     id: 2, cat: 'tenis',
     name: 'Adidas Yeezy Boost 350',
-    desc: 'Feio e gostoso — igual você indo pra academia.',
+    desc: 'Feio, mas gostoso — igual você indo pra academia.',
     price: '499,99',
     imgs: [
       'https://sneakersinfinland.com/cdn/shop/files/2E6D1C9B-B6B8-48F9-AB84-77F9C0BF9347.jpg?v=1748690825',
@@ -46,8 +46,8 @@ const PRODUCTS = [
     id: 3, cat: 'tenis',
     name: 'Nike Air Force 1 Low',
     desc: 'O tênis mais icônico da história. Branco imaculado, zero erro.',
-    price: '549,99',
-    imgs: ['https://placehold.co/600x400/f5f5f5/111111?text=AF1+Low', 'https://placehold.co/600x400/111111/ffffff?text=AF1+Preto'],
+    price: '599,99',
+    imgs: ['https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRNbfxdfeNY63warazelh6PfgG4-6uOZ0LAL3D_q0pwtKHVllTwhqdnp14YOsa4yQoEu5-FOSmrWNWR7e5UNp07ld4TbkRQlF1glL1hjA-0IrL2rylVjpy7Qj2NCHxDho4R0KZciQ&usqp=CAc', 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRxfOOFXNBW5Bg2UPqah83uU3hxyprs4QESqFzXYI3azAuJIHAHSvPzy05hWVWsA1KnJ7Gejum8o6KrmC_GBFvyNJrAtY4di4YpUh3b_MUJA4Z4UnXuCkZn07NiYRCrJx1-5028tQ&usqp=CAc'],
   },
   {
     id: 4, cat: 'tenis',
@@ -60,7 +60,7 @@ const PRODUCTS = [
     id: 5, cat: 'tenis',
     name: 'Nike Dunk Low Retro',
     desc: 'De quadra pra rua — o Dunk não mente. Colorways variados.',
-    price: '579,99',
+    price: '399,99',
     imgs: [
       'https://placehold.co/600x400/0a0a0a/ffffff?text=Dunk+Low',
       'https://placehold.co/600x400/f5f5f5/111111?text=Dunk+Panda',
@@ -83,7 +83,7 @@ const PRODUCTS = [
   },
   {
     id: 8, cat: 'tenis',
-    name: 'New Balance 550 Branco',
+    name: 'New Balance 550',
     desc: 'Clean, simples e absurdamente estiloso. Tendência absoluta.',
     price: '449,99',
     imgs: ['https://placehold.co/600x400/f5f5f5/111111?text=NB+550+Branco', 'https://placehold.co/600x400/ede0c8/111111?text=NB+550+Bege'],
@@ -93,7 +93,7 @@ const PRODUCTS = [
     name: 'New Balance 990v6',
     desc: 'O pai de todos os dad shoes. Conforto incomparável.',
     price: '599,99',
-    imgs: ['https://placehold.co/600x400/888888/111111?text=NB+990v6'],
+    imgs: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkM6fKoqvbNoNFtjElzaopDXA28yZ9vqlGtQ&s', 'https://cdn-images.farfetch-contents.com/20/26/08/62/20260862_50208898_600.jpg', 'https://newbrasil.vtexassets.com/arquivos/ids/193525/U990_U990SG6.jpg?v=638977946412370000'],
   },
   {
     id: 10, cat: 'tenis',
