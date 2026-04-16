@@ -7,11 +7,29 @@
 
 // ─── Config ──────────────────────────────────────
 const CONFIG = {
-  PER_PAGE:    8,
+  PER_PAGE:    12,
   WHATSAPP:    '5551997421676',
   FALLBACK_IMG: 'https://placehold.co/600x400/111111/13d203?text=Imagem+Indisponível',
 };
+document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("popup-overlay");
+    const closeBtn = document.getElementById("close-popup");
 
+    // Exibe o pop-up
+    popup.style.display = "flex";
+
+    // Fecha ao clicar no botão X
+    closeBtn.addEventListener("click", function() {
+        popup.style.display = "none";
+    });
+
+    // Fecha se o usuário clicar fora da imagem (no fundo escuro)
+    window.addEventListener("click", function(event) {
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    });
+});
 const CAT_LABELS = {
   tenis:   'Tênis',
   camisas: 'Camisa',
