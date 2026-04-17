@@ -11,12 +11,12 @@ const CONFIG = {
   PER_PAGE:     12,
   WHATSAPP:     '5551997421676',
   FALLBACK_IMG: 'https://placehold.co/600x400/111111/13d203?text=Imagem+Indisponível',
-  POPUP_PRODUCT: 'Camisa Seleção Brasileira — Promoção Especial',
+  POPUP_PRODUCT: 'Camisa Seleção Brasileira — Pré Venda',
 };
 
 const CAT_LABELS = {
   tenis:   'Tênis',
-  camisas: 'Camisa',
+  camisas: 'Camisa de time',
   anime:   'Anime',
   tech:    'Tech',
   esporte: 'Esporte',
@@ -62,7 +62,7 @@ const els = {
    HELPERS
 ───────────────────────────────────────────── */
 function whatsappURL(product) {
-  const msg = encodeURIComponent(`Olá! Tenho interesse no produto: ${product}`);
+  const msg = encodeURIComponent(`Olá! Vim pelo site e tenho interesse no produto: ${product}`);
   return `https://wa.me/${CONFIG.WHATSAPP}?text=${msg}`;
 }
 
