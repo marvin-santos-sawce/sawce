@@ -45,6 +45,8 @@ const els = {
   mobileMenu: document.getElementById('mobile-menu'),
   desktopNav: document.getElementById('desktop-nav'),
   headerCta:  document.getElementById('header-cta'),
+  searchInput: document.getElementById('product-search'),
+  searchClear: document.getElementById('search-clear'),
   // Popup
   popupOverlay: document.getElementById('popup-overlay'),
   popupClose:   document.getElementById('close-popup'),
@@ -67,7 +69,20 @@ function whatsappURL(product) {
 }
 
 function getFiltered() {
-  return state.cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === state.cat);
+  const query = (els.searchInput?.value ?? '').trim().toLowerCase();
+
+  let list = state.cat === 'all'
+    ? PRODUCTS
+    : PRODUCTS.filter(p => p.cat === state.cat);
+
+  if (query.length >= 1) {
+    list = list.filter(p =>
+      p.name.toLowerCase().includes(query) ||
+      p.desc.toLowerCase().includes(query)
+    );
+  }
+
+  return list;
 }
 
 function getPageRange(cur, total) {
@@ -198,9 +213,19 @@ function updateCardImage(wrap, newIdx) {
 ───────────────────────────────────────────── */
 function buildCard(product) {
   const { id, cat, name, desc, price, imgs } = product;
+  const query   = (els.searchInput?.value ?? '').trim();
   const hasMany = imgs.length > 1;
 
-  // Thumbnail buttons (below image)
+  // Highlight do termo buscado no nome
+  function highlight(text) {
+    if (!query) return text;
+    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return text.replace(
+      new RegExp(`(${escaped})`, 'gi'),
+      '<mark class="search-highlight">$1</mark>'
+    );
+  }
+
   const thumbsHTML = hasMany
     ? `<div class="color-thumbs">
         ${imgs.map((url, i) => `
@@ -211,13 +236,11 @@ function buildCard(product) {
        </div>`
     : '';
 
-  // Carousel arrows (only when multiple images)
   const arrowsHTML = hasMany
     ? `<button class="img-arrow img-arrow--prev" data-dir="-1" aria-label="Foto anterior">&#8249;</button>
        <button class="img-arrow img-arrow--next" data-dir="1"  aria-label="Próxima foto">&#8250;</button>`
     : '';
 
-  // Dots indicator
   const dotsHTML = hasMany
     ? `<div class="img-dots">
         ${imgs.map((_, i) => `<span class="img-dot${i === 0 ? ' active' : ''}"></span>`).join('')}
@@ -240,7 +263,7 @@ function buildCard(product) {
         ${dotsHTML}
       </div>
       <div class="product-body">
-        <h3 class="product-name">${name}</h3>
+        <h3 class="product-name">${highlight(name)}</h3>
         <p class="product-desc">${desc}</p>
         <div class="product-price">R$${price}</div>
         ${thumbsHTML}
@@ -263,14 +286,18 @@ function render() {
   const slice = filtered.slice(start, start + CONFIG.PER_PAGE);
 
   // Grid
+  const query = (els.searchInput?.value ?? '').trim();
+
   els.grid.innerHTML = slice.length
     ? slice.map(buildCard).join('')
-    : `<div style="text-align:center;padding:4rem 1rem;grid-column:1/-1">
-         <div style="font-size:3rem;margin-bottom:1rem;">🐉</div>
-         <p style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--muted);">
-           Nenhum produto nesta categoria ainda
-         </p>
-         <p style="color:var(--muted);font-size:.9rem;">Novidades chegando em breve!</p>
+    : `<div class="search-empty">
+         <div style="font-size:2.5rem;">🔍</div>
+         ${query
+           ? `<p class="search-empty-title">Nenhum resultado para "${query}"</p>
+              <p class="search-empty-sub">Tente outro termo ou escolha uma categoria diferente.</p>`
+           : `<p class="search-empty-title">Nenhum produto nesta categoria ainda</p>
+              <p class="search-empty-sub">Novidades chegando em breve!</p>`
+         }
        </div>`;
 
   // Bind touch/swipe for each new card
@@ -407,6 +434,41 @@ window.addEventListener('resize', handleResize);
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
   initPopup();
+  if (els.searchInput) {
+
+  // Filtra enquanto digita (debounce de 200ms para não travar)
+  let searchTimer;
+  els.searchInput.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+
+    const hasValue = els.searchInput.value.length > 0;
+    els.searchClear.hidden = !hasValue;
+
+    searchTimer = setTimeout(() => {
+      state.page = 1;   // volta para a página 1 ao buscar
+      render();
+    }, 200);
+  });
+
+  // Botão × limpa o campo e re-renderiza
+  els.searchClear.addEventListener('click', () => {
+    els.searchInput.value = '';
+    els.searchClear.hidden = true;
+    els.searchInput.focus();
+    state.page = 1;
+    render();
+  });
+
+  // ESC também limpa
+  els.searchInput.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      els.searchInput.value = '';
+      els.searchClear.hidden = true;
+      state.page = 1;
+      render();
+    }
+  });
+}
   handleResize();
   render();
 });

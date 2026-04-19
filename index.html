@@ -113,7 +113,30 @@
     <div class="products-inner">
       <div class="products-header">
         <span class="section-tag">Catálogo</span>
-        <h2 class="section-title">PRODUTOS<br><span style="color:var(--green);">MAIS QUENTES</span></h2>
+        <div class="products-heading-row">
+  <h2 class="section-title">PRODUTOS<br><span style="color:var(--green);">MAIS QUENTES</span></h2>
+
+  <div class="search-wrap">
+    <span class="search-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </span>
+    <input
+      type="search"
+      id="product-search"
+      class="search-input"
+      placeholder="Buscar produto..."
+      autocomplete="off"
+      aria-label="Buscar produto"
+    />
+    <button class="search-clear" id="search-clear" aria-label="Limpar busca" hidden>
+      &times;
+    </button>
+  </div>
+</div>
       </div>
       <div class="filters" id="filters" role="group" aria-label="Filtrar por categoria">
         <button class="filter-pill active" data-cat="all">Todos</button>
