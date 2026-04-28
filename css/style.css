@@ -343,7 +343,7 @@ header {
 
 .btn-ghost {
   display: inline-block;
-  border: 1px solid var(--border);
+  border: 1px solid var(--green);
   color: var(--text);
   font-weight: 500;
   font-size: 0.85rem;
@@ -659,7 +659,42 @@ header {
 .product-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #fff; margin-bottom: 0.35rem; line-height: 1.1; }
 .product-desc { font-size: 0.82rem; color: var(--muted); flex: 1; margin-bottom: 0.75rem; line-height: 1.5; }
 .product-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--purple); line-height: 1; margin-bottom: 0.85rem; }
+/* ── Preço promocional ── */
+.product-price--promo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-bottom: 0.85rem;
+}
 
+.price-old {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: var(--muted);
+  text-decoration: line-through;
+  line-height: 1;
+}
+
+.price-new {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.8rem;
+  color: var(--green);
+  line-height: 1;
+}
+
+.promo-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #ff4757;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  z-index: 2;
+}
 /* ── Color Thumbs ───────────────────────────── */
 .color-thumbs { display: flex; gap: 6px; margin-bottom: 0.85rem; flex-wrap: wrap; }
 

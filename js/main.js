@@ -265,7 +265,13 @@ function buildCard(product) {
       <div class="product-body">
         <h3 class="product-name">${highlight(name)}</h3>
         <p class="product-desc">${desc}</p>
-        <div class="product-price">R$${price}</div>
+        ${product.priceOld
+  ? `<div class="product-price product-price--promo">
+       <span class="price-old">R$${product.priceOld}</span>
+       <span class="price-new">R$${price}</span>
+     </div>`
+  : `<div class="product-price">R$${price}</div>`
+}
         ${thumbsHTML}
         <button class="btn-buy" data-product="${name}">Quero Este!</button>
       </div>
@@ -294,7 +300,7 @@ function render() {
          <div style="font-size:2.5rem;">🔍</div>
          ${query
            ? `<p class="search-empty-title">Nenhum resultado para "${query}"</p>
-              <p class="search-empty-sub">Tente outro termo ou escolha uma categoria diferente.</p>`
+              <p class="search-empty-sub">Nos chame no número (51) 99742-1676 para fazer um pedido personalizado!</p>`
            : `<p class="search-empty-title">Nenhum produto nesta categoria ainda</p>
               <p class="search-empty-sub">Novidades chegando em breve!</p>`
          }
