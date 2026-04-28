@@ -286,10 +286,23 @@ header {
   background: var(--black);
 }
 
-.hero-bg {
+.hero-bg-carousel {
   position: absolute;
   inset: 0;
-  background: url('https://i.imgur.com/XMJiLtK_d.jpeg?maxwidth=520&shape=thumb&fidelity=high') center/cover no-repeat;
+  z-index: 0;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.hero-slide.active {
   opacity: 0.12;
 }
 

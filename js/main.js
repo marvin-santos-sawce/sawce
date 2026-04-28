@@ -420,7 +420,19 @@ els.pagination.addEventListener('click', e => {
   render();
   document.getElementById('products').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
+// ─── Hero background carousel ─────────────────
+(function () {
+  const slides = document.querySelectorAll('.hero-slide');
+  if (slides.length < 2) return; // só ativa com 2+ imagens
 
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 5000); // troca a cada 4 segundos — ajuste à vontade
+})();
 /* ─────────────────────────────────────────────
    MOBILE NAV
 ───────────────────────────────────────────── */
