@@ -64,7 +64,7 @@ const els = {
    HELPERS
 ───────────────────────────────────────────── */
 function whatsappURL(product) {
-  const msg = encodeURIComponent(`Olá! Vim pelo site e tenho interesse no produto: ${product}`);
+  const msg = encodeURIComponent(`Olá! Vim pelo site e gostaria de mais informações sobre o produto: ${product}`);
   return `https://wa.me/${CONFIG.WHATSAPP}?text=${msg}`;
 }
 
@@ -182,7 +182,7 @@ els.lightbox.addEventListener('touchend', e => {
 }, { passive: true });
 
 /* ─────────────────────────────────────────────
-   CAROUSEL (per card)
+   CARRROSSEL (per card)
    We store current index as data-current on the
    .product-img-wrap element.
 ───────────────────────────────────────────── */
@@ -299,7 +299,7 @@ function render() {
     : `<div class="search-empty">
          <div style="font-size:2.5rem;">🔍</div>
          ${query
-           ? `<p class="search-empty-title">Nenhum resultado para "${query}"</p>
+           ? `<p class="search-empty-title">Procura por "${query}" e não encontrou o que deseja?</p>
               <p class="search-empty-sub">Nos chame no número (51) 99742-1676 para fazer um pedido personalizado!</p>`
            : `<p class="search-empty-title">Nenhum produto nesta categoria ainda</p>
               <p class="search-empty-sub">Novidades chegando em breve!</p>`
