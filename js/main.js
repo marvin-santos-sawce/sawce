@@ -20,6 +20,7 @@ const CAT_LABELS = {
   anime:   'Anime',
   tech:    'Tech',
   esporte: 'Esporte',
+  outros: 'Outros',
 };
 
 /* ─────────────────────────────────────────────

@@ -203,6 +203,14 @@ const PRODUCTS = [
     price: '479,99',
     imgs: ['https://mizunobr.vtexassets.com/arquivos/ids/257650-1200-1200?v=638647771977000000&width=1200&height=1200&aspect=true','https://mizunobr.vtexassets.com/arquivos/ids/257692-1200-1200?v=638647772504930000&width=1200&height=1200&aspect=true','https://mizunobr.vtexassets.com/arquivos/ids/259823-1200-1200?v=638678056121470000&width=1200&height=1200&aspect=true'],
   },
+  {
+    id: 111, cat: 'tenis',
+    name: 'Tênis para Corrida Nike ZoomX Invincible Run 3',
+    desc: 'Tecnologia ZoomX patenteada e placa de fibra de carbono. O tênis de corrida mais macio da Nike, projetado para te levar mais longe.',
+    price: '799,90',      // ← novo preço promocional
+    priceOld: '1400', // ← preço antigo
+    imgs: ['https://i.imgur.com/0ynhWI3.jpeg','https://img01.ztat.net/article/spp-media-p1/2cafd00a9ce946d4abaea2be120cca98/371e1c832331450ab0f93be56e9ae197.jpg?imwidth=1800&filter=packshot','https://i.imgur.com/fcHqT56.jpeg'],
+  },
 
   /* ════════════════════════════════════════════
      CAMISAS
@@ -233,7 +241,7 @@ const PRODUCTS = [
   {
     id: 24, cat: 'camisas',
     name: 'Camisa Internacional 2025',
-    desc: 'Papaizinho do Grêmio — veste o Colorado!',
+    desc: 'Minha camisa vermelha e a cachaça na mão, o Gigante me espera para começar a festa!',
     price: '149,99',
     imgs: [
       'https://acdn-us.mitiendanube.com/stores/001/775/982/products/camisa_camiseta_internacional_2025_26_torcedor_masculina_vermelha__patrocinio_patrocinador_alfa_-cdf4be68b38c363c1717449129494325-1024-1024.jpg',
@@ -272,7 +280,7 @@ const PRODUCTS = [
 
   /* ════════════════════════════════════════════
      ANIME & CULTURA
-  ════════════════════════════════════════════ */
+ ════════════════════════════════════════════ */
   {
     id: 45, cat: 'anime',
     name: 'Camisa Kimetsu no Yaiba Oversized',
@@ -442,4 +450,105 @@ const PRODUCTS = [
   { id: 108, cat: 'esporte', name: 'Joelheira Compressão Pro',          desc: 'Estabilização patelar, neoprene respirável.',                      price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/13d203?text=Joelheira+Compressão'] },
   { id: 109, cat: 'esporte', name: 'Cinto de Força 10cm Couro',         desc: 'Couro legítimo 10mm espessura, fivela dupla robusta.',             price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/5c3317/ffffff?text=Cinto+Musculação'] },
   { id: 110, cat: 'esporte', name: 'Camisa de Ciclismo UV 50+',         desc: 'Proteção solar embutida, bolso traseiro triplo, zíper full.',      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/13d203?text=Camisa+Ciclismo',       'https://placehold.co/600x400/1a0000/ffffff?text=Camisa+Bike+Vermelha'] },
+// CATEGORIA OUTROS//
+{
+    id: 112, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 113, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 114, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 115, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 116, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 117, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 118, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 119, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
+  {
+    id: 120, cat: 'outros',
+    name: 'Colar qualquer coisa',
+    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    price: ' Consultar disponibilidade',
+    imgs: [
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
+      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+    ],
+  },
 ];
+  
