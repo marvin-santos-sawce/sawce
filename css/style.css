@@ -375,7 +375,7 @@ header {
 /* ── Stats ───────────────────────────────────── */
 .stats-bar { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--surface); }
 .stats-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); }
-.stat-item { text-align: center; padding: 1.5rem 1rem; }
+.stat-item { text-align: center; padding: 0.8rem 1rem; }
 .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: var(--green); }
 .stat-label { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
 

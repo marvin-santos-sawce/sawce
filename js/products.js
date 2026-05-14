@@ -252,7 +252,7 @@ const PRODUCTS = [
     id: 26, cat: 'camisas',
     name: 'Camisa Real Madrid 2025/26',
     desc: 'Los Blancos no seu guarda-roupa. Casa e visitante disponíveis.',
-    price: '129,99',
+    price: '149,99',
     imgs: [
       'https://static.netshoes.com.br/produtos/camisa-real-madrid-home-2526-sn-torcedor-adidas-masculina/14/FBA-7853-014/FBA-7853-014_zoom1.jpg?ts=1776829439&ims=1088x',
       'https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/1f4013a4dad24d85aa75954c3279545b_9366/Camisa_I_Real_Madrid_25-26_Branco_JJ1931_42_detail.jpg',
@@ -266,7 +266,7 @@ const PRODUCTS = [
   { id: 31, cat: 'camisas', name: 'Camisa Flamengo 2025/26',           desc: 'Nação rubro-negra! A mais vendida do Brasil.',                price: '149,99', imgs: ['https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/85c2b96cab384252bd45279820c51ddd_9366/Camisa_I_CR_Flamengo_26_Vermelho_JM5651_01_laydown.jpg','https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/967970d32fa940d49ca0f65ce8bb33ca_9366/Camisa_I_CR_Flamengo_26_Vermelho_JM5651_41_detail.jpg'] },
   { id: 32, cat: 'camisas', name: 'Camisa Palmeiras 2026',             desc: 'Porcão no peito, orgulho na alma. Verdão sempre.',            price: '149,99', imgs: ['https://lojapalmeiras.vtexassets.com/arquivos/ids/195565-1200-auto?v=638979709001830000&width=1200&height=auto&aspect=true','https://lojapalmeiras.vtexassets.com/arquivos/ids/195566/I_V_FICTOR.jpg?v=638979709001830000'] },
   { id: 33, cat: 'camisas', name: 'Camisa Corinthians 2026',           desc: 'Fiel até o fim. Alvinegro com muito amor.',                   price: '149,99', imgs: ['https://http2.mlstatic.com/D_NQ_NP_2X_633657-MLB107938589466_032026-F-camisa-corinthians-oficial-2526-third-torcedor-lancamento.webp','https://imgnike-a.akamaihd.net/768x768/05880451A2.jpg'] },
-  { id: 34, cat: 'camisas', name: 'Camisa Santos 2025',                desc: 'Peixe nas 4 linhas. Branco e preto clássico.',                price: '149,99', imgs: ['https://umbro.vtexassets.com/arquivos/ids/486951/U31S03958_313.jpg?v=638858480628130000','https://static.santosstore.com.br/produtos/camisa-santos-i-2627-sn-torcedor-umbro-masculina/32/SID-0111-032/SID-0111-032_zoom1.jpg?ts=1776829610&ims=1088x'] },
+  { id: 34, cat: 'camisas', name: 'Camisa Santos 2025',                desc: 'Peixe nas 4 linhas. Branco e preto clássico.',                price: '149,99', imgs: ['https://static.netshoes.com.br/produtos/camisa-santos-2526-n-10-neymar-jr-torcedor-edicao-especial-umbro-masculina/08/2IB-2264-108/2IB-2264-108_zoom2.jpg?ts=1778557290&ims=1088x','https://static.santosstore.com.br/produtos/camisa-santos-i-2627-sn-torcedor-umbro-masculina/32/SID-0111-032/SID-0111-032_zoom1.jpg?ts=1776829610&ims=1088x'] },
   { id: 35, cat: 'camisas', name: 'Camisa Bayern Munich 2024/25',      desc: 'Mia san mia. Vermelho alemão de alta performance.',           price: '149,99', imgs: ['https://cdn.vnda.com.br/1200x/grandestorcidas/2024/08/15/10_10_15_892_10_8_0_033_whatsapp20image202024081520at20100950.jpeg?v=1723727416','https://images.tcdn.com.br/img/img_prod/1052037/camisa_bayern_de_munique_home_2024_25_4753_1_159066bc9bfad4644bff4f1f81d0088c.jpg'] },
   { id: 36, cat: 'camisas', name: 'Camisa Manchester United 2024/25',  desc: 'Old Trafford em cada fio. Red Devils chegando.',              price: '149,99', imgs: ['https://cdn.vnda.com.br/1200x/grandestorcidas/2024/08/26/13_57_18_616_13_8_2_213_whatsapp20image202024082620at20135650.jpeg?v=1724691438','https://images.tcdn.com.br/img/img_prod/1052037/camisa_manchester_united_third_2024_25_5165_1_70f0ddbbf2c18eb669987e94dc99399e.jpg'] },
   { id: 37, cat: 'camisas', name: 'Camisa Juventus 2024/25',           desc: 'Zebra de Turim. Elegância italiana em campo.',                price: '149,99', imgs: ['https://static.ativaesportes.com.br/public/ativaesportes/imagens/produtos/media/camiseta-adidas-m-c-juventus-i-25-26-masculina-jj4320-685882269acd2.jpg','https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/fe0a2e213d8d4ce2accb8324679b8e5a_9366/Camisa_I_Juventus_25-26_Branco_JJ4320_21_model.jpg'] },
@@ -464,13 +464,13 @@ const PRODUCTS = [
   },
   {
     id: 113, cat: 'outros',
-    name: 'Colar qualquer coisa',
+    name: 'Bolsa Chanel 25 Medium',
     desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
     price: ' Consultar disponibilidade',
     imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+      'https://www.chanel.com/images/as///f_auto,q_auto:good,dpr_1.1/w_1600/-76268803.jpg',
+      'https://www.chanel.com/images/as///t_fashioncommercial_trim,f_auto,q_auto:good,dpr_1.1/w_480/-80391533.jpg',
+      'https://www.chanel.com/images/as///f_auto,q_auto:good,dpr_1.1/w_960/-81690308.jpg',
     ],
   },
   {
