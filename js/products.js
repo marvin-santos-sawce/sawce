@@ -453,13 +453,13 @@ const PRODUCTS = [
 // CATEGORIA OUTROS//
 {
     id: 112, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
+    name: 'Colares',
+    desc: 'Melhores marcas com a melhor qualidade',
     price: ' Consultar disponibilidade',
     imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
+      'https://swarovski.vtexassets.com/arquivos/ids/220272-1200-auto?v=639088509875000000&width=1200&height=auto&aspect=true',
+      'https://pandorajoias.vtexassets.com/arquivos/ids/408527/392542C01_1.png?v=638854447596030000',
+      'https://lojavivarafsv3.vtexassets.com/arquivos/ids/931438-1600-1600/Colar-Life-Fusion-em-Prata-925-com-Banho-de-Ouro-Amarelo-18k-com-Pedras-Incolores-45cm-106008_1_set.jpg?v=638749056169730000',
     ],
   },
   {
@@ -471,83 +471,6 @@ const PRODUCTS = [
       'https://www.chanel.com/images/as///f_auto,q_auto:good,dpr_1.1/w_1600/-76268803.jpg',
       'https://www.chanel.com/images/as///t_fashioncommercial_trim,f_auto,q_auto:good,dpr_1.1/w_480/-80391533.jpg',
       'https://www.chanel.com/images/as///f_auto,q_auto:good,dpr_1.1/w_960/-81690308.jpg',
-    ],
-  },
-  {
-    id: 114, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 115, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 116, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 117, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 118, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 119, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
-    ],
-  },
-  {
-    id: 120, cat: 'outros',
-    name: 'Colar qualquer coisa',
-    desc: 'Compartimentos amplos, alça ajustável, o Swoosh garantindo.',
-    price: ' Consultar disponibilidade',
-    imgs: [
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA3.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA4.jpg',
-      'https://imgnike-a.akamaihd.net/768x768/012822IDA2.jpg',
     ],
   },
 ];
