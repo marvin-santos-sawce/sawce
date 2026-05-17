@@ -213,11 +213,10 @@ function updateCardImage(wrap, newIdx) {
    CARD BUILDER
 ───────────────────────────────────────────── */
 function buildCard(product) {
-  const { id, cat, name, desc, price, imgs } = product;
+  const { id, cat, name, desc, pricePix, priceCard, imgs } = product;
   const query   = (els.searchInput?.value ?? '').trim();
   const hasMany = imgs.length > 1;
 
-  // Highlight do termo buscado no nome
   function highlight(text) {
     if (!query) return text;
     const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -248,6 +247,30 @@ function buildCard(product) {
        </div>`
     : '';
 
+  // Calcular parcelamento do cartão em 5x
+  const priceCardNum = parseFloat(priceCard?.replace(',', '.') ?? 0);
+  const installment = (priceCardNum / 5).toFixed(2).replace('.', ',');
+
+  // Renderizar preços (se houver pricePix e priceCard, mostra ambos; senão, preço normal)
+  let priceHTML = '';
+  if (pricePix && priceCard) {
+    priceHTML = `
+      <div class="product-price product-price--dual">
+        <div class="price-card">
+          <span class="price-label">Cartão</span>
+          <span class="price-value">R$${priceCard}</span>
+          <span class="price-installment">ou 5x de R$${installment}</span>
+        </div>
+        <div class="price-divider">OU</div>
+        <div class="price-pix">
+          <span class="price-label">PIX</span>
+          <span class="price-value">R$${pricePix}</span>
+        </div>
+      </div>`;
+  } else {
+    priceHTML = `<div class="product-price">R$${pricePix || priceCard || 'Consultar disponibilidade'}</div>`;
+  }
+
   return `
     <article class="product-card" data-id="${id}">
       <div class="product-img-wrap" data-current="0">
@@ -266,13 +289,7 @@ function buildCard(product) {
       <div class="product-body">
         <h3 class="product-name">${highlight(name)}</h3>
         <p class="product-desc">${desc}</p>
-        ${product.priceOld
-  ? `<div class="product-price product-price--promo">
-       <span class="price-old">R$${product.priceOld}</span>
-       <span class="price-new">R$${price}</span>
-     </div>`
-  : `<div class="product-price">R$${price}</div>`
-}
+        ${priceHTML}
         ${thumbsHTML}
         <button class="btn-buy" data-product="${name}">Quero Este!</button>
       </div>

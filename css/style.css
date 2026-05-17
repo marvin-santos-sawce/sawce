@@ -1154,3 +1154,88 @@ footer {
     padding: 3rem 1.5rem;
   }
 }
+
+/* ══════════════════════════════════════════════
+   PREÇOS - PIX vs CARTÃO
+══════════════════════════════════════════════ */
+
+.product-price--dual {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.8rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.8rem;
+  background: var(--surface2);
+  border-radius: 8px;
+  border-left: 3px solid var(--green);
+  align-items: center;
+  justify-items: center;
+}
+
+.price-pix,
+.price-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.price-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.price-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green);
+}
+
+.price-pix .price-value {
+  color: var(--green);
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.price-card .price-value {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.price-installment {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-top: 0.2rem;
+}
+
+.price-divider {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .product-price--dual {
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0.5rem;
+    padding: 0.8rem;
+  }
+
+  .price-value {
+    font-size: 1rem;
+  }
+
+  .price-divider {
+    font-size: 0.65rem;
+  }
+}
