@@ -4,7 +4,6 @@
   "description": "Sawce Company - Importadora de produtos",
   "type": "module",
   "scripts": {
-    "build": "tailwindcss -i ./input.css -o ./css/tailwind.css",
     "dev": "tailwindcss -i ./input.css -o ./css/tailwind.css --watch"
   },
   "keywords": [
