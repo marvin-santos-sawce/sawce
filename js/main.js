@@ -291,7 +291,10 @@ function buildCard(product) {
         <p class="product-desc">${desc}</p>
         ${priceHTML}
         ${thumbsHTML}
-        <button class="btn-buy" data-product="${name}">Quero Este!</button>
+        <div class="product-buttons">
+          <button class="btn-buy" data-product="${name}">Quero Este!</button>
+          <button class="btn-add-cart" data-product="${name}" data-price="${pricePix}" title="Adicionar ao carrinho">🛒</button>
+        </div>
       </div>
     </article>`;
 }
@@ -409,6 +412,16 @@ els.grid.addEventListener('click', e => {
     const product = buyBtn.dataset.product;
     if (!product) return;
     window.open(whatsappURL(product), '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  // 5. Add to cart button
+  const addCartBtn = e.target.closest('.btn-add-cart');
+  if (addCartBtn) {
+    const product = addCartBtn.dataset.product;
+    const price = addCartBtn.dataset.price;
+    if (!product || !price) return;
+    CART.add(product, price);
   }
 });
 
