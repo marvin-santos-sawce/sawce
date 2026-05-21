@@ -1,0 +1,21 @@
+{
+  "name": "sawce-company",
+  "version": "2.0.0",
+  "description": "Sawce Company - Importadora de produtos",
+  "type": "module",
+  "scripts": {
+    "build": "tailwindcss -i ./input.css -o ./css/tailwind.css",
+    "dev": "tailwindcss -i ./input.css -o ./css/tailwind.css --watch"
+  },
+  "keywords": [
+    "importados",
+    "china",
+    "ecommerce"
+  ],
+  "author": "Sawce Company",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.17"
+  }
+}
