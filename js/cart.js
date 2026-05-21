@@ -158,7 +158,7 @@ const CART = {
     });
 
     const msg = encodeURIComponent(
-      `Olá! Montei meu carrinho com os seguintes produtos: ${productList} Total: R$ ${formattedTotal} gostaria de mais informações sobre o pagamento.`
+      `Olá! Montei meu carrinho com os seguintes produtos: ${productList} Total: R$ ${formattedTotal} gostaria de seguir com minha compra.`
     );
 
     window.open(`https://wa.me/5551997421676?text=${msg}`, '_blank', 'noopener,noreferrer');
