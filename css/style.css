@@ -1261,6 +1261,230 @@ footer {
   transform: scale(1.1);
 }
 
+.cart-icon-btn {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--green);
+  color: var(--black);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ══════════════════════════════════════════════
+   PERSONALIZAÇÃO MODAL
+══════════════════════════════════════════════ */
+.personalization-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.personalization-modal.active {
+  display: flex;
+}
+
+.personalization-content {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 650px;
+  width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .personalization-content {
+    padding: 1.5rem;
+    max-width: 95vw;
+  }
+
+  .personalization-container {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .shirt-preview {
+    width: 100%;
+  }
+
+  .personalization-container form {
+    width: 100%;
+  }
+}
+
+.personalization-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.personalization-close-btn:hover {
+  color: var(--green);
+}
+
+.personalization-content h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: var(--green);
+}
+
+.personalization-title {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 1rem 0;
+}
+
+.personalization-fee {
+  background: var(--surface);
+  border-left: 3px solid var(--green);
+  padding: 0.8rem;
+  margin: 0 0 1.5rem 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.personalization-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Visualização da Camiseta */
+.shirt-preview {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 220px;
+}
+
+.shirt-back {
+  width: 180px;
+  height: 240px;
+  background: linear-gradient(135deg, #1a4d2e 0%, #2d8659 100%);
+  border-radius: 20px 20px 40px 40px;
+  position: relative;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4), inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 2rem 1rem;
+  overflow: hidden;
+}
+
+/* Decote da camiseta */
+.shirt-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 20px 20px;
+}
+
+.shirt-name {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.15em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  font-family: 'Bebas Neue', sans-serif;
+  z-index: 2;
+}
+
+.shirt-number {
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6), -1px -1px 2px rgba(255, 255, 255, 0.1);
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  z-index: 2;
+}
+
+/* Formulário */
+.personalization-container form {
+  flex: 1;
+  min-width: 220px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: 'Outfit', sans-serif;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--green);
+}
+
+.form-group input::placeholder {
+  color: var(--muted);
+}
+
+#personalization-form button {
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
 .product-buttons {
   display: flex;
   gap: 0.8rem;
@@ -1286,6 +1510,31 @@ footer {
   background: var(--green);
   border-color: var(--green);
   color: #000;
+}
+
+.btn-personalize {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-personalize:hover {
+  background: var(--green);
+  border-color: var(--green);
+  color: #000;
+}
+
+.cart-item-personalization {
+  font-size: 0.8rem;
+  color: var(--green);
+  margin: 0.3rem 0;
+  font-weight: 500;
 }
 
 /* Cart Drawer */

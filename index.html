@@ -48,6 +48,56 @@
     </div>
   </div>
 
+  <!-- MODAL PERSONALIZAÇÃO -->
+  <div id="personalization-modal" class="personalization-modal">
+    <div class="personalization-content">
+      <button id="personalization-close" class="personalization-close-btn" aria-label="Fechar personalização">&times;</button>
+      <h2>Personalizar Camisa</h2>
+      <p class="personalization-title" id="personalization-title">Camisa Seleção Brasileira</p>
+      <p class="personalization-fee">Taxa de personalização: <strong>R$ 30,00</strong></p>
+
+      <div class="personalization-container">
+        <!-- Visualização da camiseta -->
+        <div class="shirt-preview">
+          <div class="shirt-back">
+            <div class="shirt-name" id="preview-name">RONALDINHO</div>
+            <div class="shirt-number" id="preview-number">10</div>
+          </div>
+        </div>
+
+        <!-- Formulário de entrada -->
+        <form id="personalization-form">
+          <div class="form-group">
+            <label for="player-number">Número do Jogador</label>
+            <input
+              type="number"
+              id="player-number"
+              min="0"
+              max="99"
+              value="10"
+              placeholder="Ex: 10"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="player-name">Nome do Jogador</label>
+            <input
+              type="text"
+              id="player-name"
+              placeholder="Ex: RONALDINHO"
+              maxlength="15"
+              value="RONALDINHO"
+              required
+            />
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%;">Confirmar Personalização</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <!-- LIGHTBOX -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visualizar imagem">
     <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">&times;</button>
@@ -71,6 +121,7 @@
       <a href="#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
       <button id="cart-btn" class="cart-icon-btn" aria-label="Abrir carrinho">
         🛒
+        <span id="cart-badge" class="cart-badge">0</span>
       </button>
       <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
     </div>

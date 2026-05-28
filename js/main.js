@@ -271,6 +271,10 @@ function buildCard(product) {
     priceHTML = `<div class="product-price">R$${pricePix || priceCard || 'Consultar disponibilidade'}</div>`;
   }
 
+  const personalizeBtn = cat === 'camisas'
+    ? `<button class="btn-personalize" data-product="${name}" data-price="${pricePix}" title="Personalizar camisa"> Personalizar</button>`
+    : '';
+
   return `
     <article class="product-card" data-id="${id}">
       <div class="product-img-wrap" data-current="0">
@@ -292,6 +296,7 @@ function buildCard(product) {
         ${priceHTML}
         ${thumbsHTML}
         <div class="product-buttons">
+          ${personalizeBtn}
           <button class="btn-buy" data-product="${name}">Quero Este!</button>
           <button class="btn-add-cart" data-product="${name}" data-price="${pricePix}" title="Adicionar ao carrinho">🛒</button>
         </div>
@@ -415,13 +420,23 @@ els.grid.addEventListener('click', e => {
     return;
   }
 
+  // 4a. Personalize button
+  const personalizeBtn = e.target.closest('.btn-personalize');
+  if (personalizeBtn) {
+    const product = personalizeBtn.dataset.product;
+    const price = personalizeBtn.dataset.price;
+    if (!product || !price) return;
+    openPersonalizationModal(product, price);
+    return;
+  }
+
   // 5. Add to cart button
   const addCartBtn = e.target.closest('.btn-add-cart');
   if (addCartBtn) {
     const product = addCartBtn.dataset.product;
     const price = addCartBtn.dataset.price;
     if (!product || !price) return;
-    CART.add(product, price);
+    window.CART.add(product, price);
   }
 });
 
@@ -479,6 +494,28 @@ els.mobileBtn.addEventListener('click', () => els.mobileMenu.classList.toggle('h
 window.addEventListener('resize', handleResize);
 
 /* ─────────────────────────────────────────────
+   PERSONALIZAÇÃO
+───────────────────────────────────────────── */
+let currentPersonalization = null;
+
+function openPersonalizationModal(product, price) {
+  const modal = document.getElementById('personalization-modal');
+  const title = document.getElementById('personalization-title');
+  title.textContent = product;
+  currentPersonalization = { product, price };
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePersonalizationModal() {
+  const modal = document.getElementById('personalization-modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+  document.getElementById('personalization-form').reset();
+  currentPersonalization = null;
+}
+
+/* ─────────────────────────────────────────────
    INIT
 ───────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
@@ -518,6 +555,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 }
+
+  // Personalização modal
+  const personalizationModal = document.getElementById('personalization-modal');
+  const personalizationClose = document.getElementById('personalization-close');
+  const personalizationForm = document.getElementById('personalization-form');
+  const playerNumberInput = document.getElementById('player-number');
+  const playerNameInput = document.getElementById('player-name');
+  const previewNumber = document.getElementById('preview-number');
+  const previewName = document.getElementById('preview-name');
+
+  if (personalizationClose) {
+    personalizationClose.addEventListener('click', closePersonalizationModal);
+  }
+
+  if (personalizationModal) {
+    personalizationModal.addEventListener('click', e => {
+      if (e.target.id === 'personalization-modal') {
+        closePersonalizationModal();
+      }
+    });
+  }
+
+  // Atualizar visualização em tempo real
+  if (playerNumberInput) {
+    playerNumberInput.addEventListener('input', e => {
+      previewNumber.textContent = e.target.value || '10';
+    });
+  }
+
+  if (playerNameInput) {
+    playerNameInput.addEventListener('input', e => {
+      previewName.textContent = e.target.value.toUpperCase() || 'RONALDINHO';
+    });
+  }
+
+  if (personalizationForm) {
+    personalizationForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const number = document.getElementById('player-number').value;
+      const name = document.getElementById('player-name').value.toUpperCase();
+
+      if (!number || !name) return;
+
+      if (!currentPersonalization || !currentPersonalization.price) {
+        alert('Erro ao personalizar. Tente novamente.');
+        return;
+      }
+
+      const priceNum = parseFloat(currentPersonalization.price.replace(',', '.'));
+      const personalizedPrice = (priceNum + 30).toFixed(2).replace('.', ',');
+
+      const msg = encodeURIComponent(
+        `Olá! Gostaria de personalizar a seguinte camisa: ${currentPersonalization.product} Número: ${number} | Nome: ${name} | Preço: R$ ${currentPersonalization.price}\nTaxa de personalização: R$ 30,00\nTotal: R$ ${personalizedPrice}`
+      );
+
+      window.open(`https://wa.me/5551997421676?text=${msg}`, '_blank', 'noopener,noreferrer');
+      closePersonalizationModal();
+    });
+  }
+
   handleResize();
   render();
 });

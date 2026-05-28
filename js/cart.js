@@ -4,33 +4,36 @@
 
 'use strict';
 
-const CART = {
+window.CART = {
   items: [],
 
-  add(productName, pricePix) {
-    const existing = this.items.find(item => item.name === productName);
+  add(productName, pricePix, personalization = null) {
+    const existing = this.items.find(item => item.name === productName && JSON.stringify(item.personalization) === JSON.stringify(personalization));
     if (existing) {
       existing.qty += 1;
     } else {
-      this.items.push({ name: productName, pricePix, qty: 1 });
+      this.items.push({ name: productName, pricePix, qty: 1, personalization });
     }
     this.save();
     this.render();
+    this.updateBadge();
     this.showNotification(productName);
   },
 
-  remove(productName) {
-    this.items = this.items.filter(item => item.name !== productName);
+  remove(productName, personalization = null) {
+    this.items = this.items.filter(item => !(item.name === productName && JSON.stringify(item.personalization) === JSON.stringify(personalization)));
     this.save();
     this.render();
+    this.updateBadge();
   },
 
-  changeQty(productName, qty) {
-    const item = this.items.find(item => item.name === productName);
+  changeQty(productName, qty, personalization = null) {
+    const item = this.items.find(item => item.name === productName && JSON.stringify(item.personalization) === JSON.stringify(personalization));
     if (item) {
       item.qty = Math.max(1, qty);
       this.save();
       this.render();
+      this.updateBadge();
     }
   },
 
@@ -38,6 +41,7 @@ const CART = {
     this.items = [];
     this.save();
     this.render();
+    this.updateBadge();
   },
 
   save() {
@@ -68,10 +72,15 @@ const CART = {
       return;
     }
 
-    cartList.innerHTML = this.items.map((item, idx) => `
+    cartList.innerHTML = this.items.map((item, idx) => {
+      const personalizationHTML = item.personalization
+        ? `<div class="cart-item-personalization">👤 ${item.personalization.number} - ${item.personalization.name}</div>`
+        : '';
+      return `
       <div class="cart-item">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.name}</div>
+          ${personalizationHTML}
           <div class="cart-item-price">R$ ${item.pricePix}</div>
         </div>
         <div class="cart-item-controls">
@@ -81,7 +90,7 @@ const CART = {
         </div>
         <button class="cart-remove" data-idx="${idx}" aria-label="Remover">✕</button>
       </div>
-    `).join('');
+    `}).join('');
 
     this.updateTotalDisplay();
 
@@ -92,7 +101,7 @@ const CART = {
         const op = e.target.dataset.op;
         const item = this.items[idx];
         const newQty = op === 'plus' ? item.qty + 1 : item.qty - 1;
-        this.changeQty(item.name, newQty);
+        this.changeQty(item.name, newQty, item.personalization);
       });
     });
 
@@ -100,14 +109,14 @@ const CART = {
       input.addEventListener('change', e => {
         const idx = parseInt(e.target.dataset.idx, 10);
         const item = this.items[idx];
-        this.changeQty(item.name, parseInt(e.target.value, 10) || 1);
+        this.changeQty(item.name, parseInt(e.target.value, 10) || 1, item.personalization);
       });
     });
 
     cartList.querySelectorAll('.cart-remove').forEach(btn => {
       btn.addEventListener('click', e => {
         const idx = parseInt(e.target.dataset.idx, 10);
-        this.remove(this.items[idx].name);
+        this.remove(this.items[idx].name, this.items[idx].personalization);
       });
     });
   },
@@ -141,6 +150,13 @@ const CART = {
     totalValue.textContent = `R$ ${formattedTotal}`;
   },
 
+  updateBadge() {
+    const badge = document.getElementById('cart-badge');
+    if (!badge) return;
+    const total = this.items.reduce((sum, item) => sum + item.qty, 0);
+    badge.textContent = total;
+  },
+
   checkout() {
     if (this.items.length === 0) {
       alert('Seu carrinho está vazio');
@@ -148,7 +164,13 @@ const CART = {
     }
 
     const productList = this.items
-      .map(item => `${item.name} (${item.qty}x - R$ ${item.pricePix})`)
+      .map(item => {
+        let text = `${item.name} (${item.qty}x - R$ ${item.pricePix})`;
+        if (item.personalization) {
+          text += ` [Personalizado: #${item.personalization.number} ${item.personalization.name}]`;
+        }
+        return text;
+      })
       .join(' | ');
 
     const total = this.getTotal();
@@ -167,8 +189,9 @@ const CART = {
 
 // Initialize cart
 document.addEventListener('DOMContentLoaded', () => {
-  CART.load();
-  CART.render();
+  window.CART.load();
+  window.CART.render();
+  window.CART.updateBadge();
 
   // Cart toggle
   const cartBtn = document.getElementById('cart-btn');
@@ -190,8 +213,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cartCheckoutBtn) {
     cartCheckoutBtn.addEventListener('click', () => {
-      CART.checkout();
-      CART.clear();
+      window.CART.checkout();
+      window.CART.clear();
       cartDrawer?.classList.remove('open');
     });
   }
