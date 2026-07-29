@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rastreamento de Pacotes — Sawce Company</title>
+  <meta name="description" content="Rastreie seu pedido da Sawce Company em tempo real." />
+  <meta name="keywords" content="rastreamento, pacote, pedido, sawce company" />
+  <meta name="author" content="Sawce Company" />
+  <link rel="icon" href="https://i.imgur.com/BZ3F3EX.jpeg" type="image/jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="index.html"><img src="https://i.imgur.com/ElPQZl7.png" alt="Sawce Company" class="header-logo" /></a>
+      <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
+        <a href="index.html"    class="nav-link">Home</a>
+        <a href="index.html#products"   class="nav-link">Produtos</a>
+        <a href="index.html#quem-somos" class="nav-link">Quem Somos</a>
+        <a href="faq.html"      class="nav-link">Dúvidas Frequentes</a>
+        <a href="rastreamento.html" class="nav-link active">Rastreamento</a>
+      </nav>
+      <a href="index.html#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
+      <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
+    </div>
+    <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
+      <a href="index.html">Home</a>
+      <a href="index.html#products">Produtos</a>
+      <a href="index.html#quem-somos">Quem Somos</a>
+      <a href="faq.html">Dúvidas Frequentes</a>
+      <a href="rastreamento.html">Rastreamento</a>
+    </nav>
+  </header>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="ticker-item">📦 Rastreie seu pedido em tempo real</span>
+      <span class="ticker-item">★ Frete Grátis para Todo Brasil</span>
+      <span class="ticker-item">🚚 Acompanhamento completo</span>
+      <span class="ticker-item">✅ Qualidade Garantida</span>
+      <span class="ticker-item">📦 Saiba onde está seu pedido</span>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <section class="tracking-section">
+    <div class="tracking-inner">
+      <div class="tracking-header">
+        <span class="section-tag">Acompanhamento</span>
+        <h1 class="section-title">RASTREIE SEU<br><span style="color:var(--green);">PEDIDO</span></h1>
+        <p class="tracking-subtitle">Digite o código de rastreamento dos Correios para acompanhar seu pedido em tempo real</p>
+      </div>
+
+      <div class="tracking-form-wrapper">
+  <form id="tracking-form" class="tracking-form" action="https://rastreamento.correios.com.br/app/index.php" method="GET" target="_blank">
+    <div class="form-group-tracking">
+      <input
+        type="text"
+        id="tracking-code"
+        name="objeto" placeholder="Ex: LZ430381595CN"
+        maxlength="13"
+        class="tracking-input"
+        aria-label="Código de rastreamento"
+        required />
+      <button type="submit" class="btn-primary">🔍 Rastrear</button>
+    </div>
+  </form>
+</div>
+        </form>
+      </div>
+
+      <!-- Resultado do rastreamento -->
+      <div id="tracking-result" class="tracking-result hidden">
+        <div class="tracking-status">
+          <h2 id="result-title">Informações do Pacote</h2>
+          <div class="status-badge" id="status-badge"></div>
+        </div>
+
+        <div class="tracking-timeline">
+          <div id="timeline-container" class="timeline"></div>
+        </div>
+
+        <div class="tracking-details">
+          <div class="detail-item">
+            <span class="detail-label">Código:</span>
+            <span id="detail-code" class="detail-value">—</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Remetente:</span>
+            <span id="detail-sender" class="detail-value">—</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Destinatário:</span>
+            <span id="detail-receiver" class="detail-value">—</span>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">Status Atual:</span>
+            <span id="detail-status" class="detail-value">—</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div id="tracking-error" class="tracking-error hidden">
+        <div class="error-icon">⚠️</div>
+        <h3>Pacote não encontrado</h3>
+        <p id="error-message">Verifique o código de rastreamento e tente novamente.</p>
+      </div>
+
+      <!-- Loading -->
+      <div id="tracking-loading" class="tracking-loading hidden">
+        <div class="spinner"></div>
+        <p>Rastreando seu pedido...</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">SAWCE COMPANY</div>
+        <div class="footer-tagline">Importando com estilo desde 2024</div>
+      </div>
+
+      <div class="footer-payment">
+        <p class="footer-payment-title">Formas de Pagamento</p>
+        <div class="payment-methods">
+          <div class="payment-badge"><span class="payment-icon">💳</span><span>Crédito</span></div>
+          <div class="payment-badge"><span class="payment-icon">💳</span><span>Débito</span></div>
+          <div class="payment-badge"><span class="payment-icon">💰</span><span>Pix</span></div>
+          <div class="payment-badge"><span class="payment-icon">📄</span><span>Boleto</span></div>
+        </div>
+      </div>
+
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/sawce.imports?igsh=MXRjcW1rOGRkd3pqMA==" target="_blank" rel="noopener noreferrer" class="social-btn">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@sawce.company.sho?_r=1&_t=ZS-962CE3mrhSe" target="_blank" class="social-btn">
+          <i class="fab fa-tiktok"></i> TikTok
+        </a>
+        <a href="https://wa.me/5551997421676" target="_blank" rel="noopener noreferrer" class="social-btn social-btn--green">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Sawce Company. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="js/tracking.js"></script>
+</body>
+</html>
