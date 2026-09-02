@@ -17,8 +17,6 @@ const CONFIG = {
 const CAT_LABELS = {
   tenis:   'Tênis',
   camisas: 'Camisa de time',
-  anime:   'Anime',
-  tech:    'Tech',
   esporte: 'Esporte',
   outros: 'Outros',
 };

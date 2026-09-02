@@ -3,7 +3,7 @@
    Estrutura de cada produto:
    {
      id:    número único,
-     cat:   'tenis' | 'camisas' | 'anime' | 'tech' | 'esporte',
+     cat:   'tenis' | 'camisas' | 'outros' | 'outros' | 'esporte',
      name:  'Nome do Produto',
      desc:  'Descrição curta',
      pricePix: '000,00', priceCard: '0,00',          ← apenas o valor, sem "R$"
@@ -279,10 +279,10 @@ const PRODUCTS = [
   { id: 44, cat: 'camisas', name: 'Camisa Borussia Dortmund 2025/26',  desc: 'BVB amarelo-preto — Signal Iduna Park em você.',              pricePix: '149,99', priceCard: '163,19', imgs: ['https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQe-q9PRVhR1z5h7vSmD2xwao_55wUF5VVOVou0Fiy74HjrIYTQ8icDETxhE8SjrTX1B9fvYGv_PqAXF__Fr5IGKow2emqg','https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ540r04rXx4vXEJB1D_HvEGVXEtr83VR-hqkAhCP2IFxaPEdrB7XxspoPqa7X0lUQD844z3JlyZxkGNhXP2qB310eVeUan7BzbyR7LjIsiTaNQKWIuQCWocw'] },
 
   /* ════════════════════════════════════════════
-     ANIME & CULTURA
+     outros & CULTURA
  ════════════════════════════════════════════ */
   {
-    id: 45, cat: 'anime',
+    id: 45, cat: 'outros',
     name: 'Camisa Kimetsu no Yaiba Oversized',
     desc: 'As novinha adoram. Nezuko aprovaria o estilo.',
     price: '  Consultar disponibilidade',
@@ -293,7 +293,7 @@ const PRODUCTS = [
     ],
   },
   {
-    id: 46, cat: 'anime',
+    id: 46, cat: 'outros',
     name: 'Mochilas personalizadas Premium — Coleção',
     desc: 'Goku, Vegeta, Broly e mais. Perfeito para colecionar.',
     price: ' Consultar disponibilidade',
@@ -304,14 +304,14 @@ const PRODUCTS = [
     ],
   },
   {
-    id: 47, cat: 'anime',
+    id: 47, cat: 'outros',
     name: 'Funko Naruto Uzumaki',
     desc: 'Acredite no seu caminho ninja. Dattebayo!',
     price: ' Consultar disponibilidade',
     imgs: ['https://http2.mlstatic.com/D_NQ_NP_851699-MLB75661936083_042024-O.webp'],
   },
   {
-    id: 48, cat: 'anime',
+    id: 48, cat: 'outros',
     name: 'Camisa Naruto Oversized',
     desc: 'Veste o espírito do ninja mais raiz do Konoha.',
     price: ' Consultar disponibilidade',
@@ -320,30 +320,30 @@ const PRODUCTS = [
       'https://img.ltwebstatic.com/v4/p/spmp/2024/08/14/52/1723664162e3012b88c8eeb8117a39de61a93c8282_thumbnail_405x.webp',
     ],
   },
-  { id: 49, cat: 'anime', name: 'Funko Monkey D. Luffy',          desc: 'Rei dos piratas em resina. Pose de batalha, Gear 5 disponível.',    price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/FF6B35?text=Funko+Luffy',        'https://placehold.co/600x400/0a0a0a/ffffff?text=Luffy+Gear+5'] },
-  { id: 50, cat: 'anime', name: 'Funko Levi Ackerman',             desc: 'O capitão da Survey Corps em escala 1:8. Detalhes impressionantes.',  price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/1a1a1a/c0c0c0?text=Funko+Levi',          'https://placehold.co/600x400/111111/ffffff?text=Levi+Combat'] },
-  { id: 51, cat: 'anime', name: 'Camisa One Piece Oversized',       desc: 'Piratas do chapéu de palha no peito. Nakama de verdade.',             price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a2a/FF6B35?text=Camisa+One+Piece',     'https://placehold.co/600x400/111111/FF6B35?text=One+Piece+Preta'] },
-  { id: 52, cat: 'anime', name: 'Camisa Attack on Titan',           desc: 'Survey Corps uniform inspired. Cores da 104th Cadet Corps.',          price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/1a1a0a/5f6b4e?text=Attack+on+Titan',      'https://placehold.co/600x400/2a3a2a/c0c0c0?text=AoT+Survey+Corps'] },
-  { id: 53, cat: 'anime', name: 'Camisa Jujutsu Kaisen',            desc: 'Maldições e muito estilo. Gojo Satoru aprova.',                       price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Jujutsu+Kaisen',       'https://placehold.co/600x400/f5f5f5/111111?text=JJK+Branca'] },
-  { id: 54, cat: 'anime', name: 'Funko Goku Super Saiyan Blue',    desc: 'Cabelo azul, poder além dos limites. Dragon Ball Super.',              price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a1a3a/4fc3f7?text=Goku+SSB',             'https://placehold.co/600x400/0a0a0a/c0c0c0?text=Goku+UI'] },
-  { id: 55, cat: 'anime', name: 'Funko Vegeta SSJ',                desc: 'Príncipe dos Saiyajins em postura de combate. Lenda.',                 price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/1a0a1a/B100c7?text=Funko+Vegeta',        'https://placehold.co/600x400/0a0a0a/ffffff?text=Vegeta+UI'] },
-  { id: 56, cat: 'anime', name: 'Camisa Tokyo Revengers',           desc: 'Toman Gang na tela. Mikey e Draken de verdade.',                       price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/FFD700?text=Tokyo+Revengers',       'https://placehold.co/600x400/1a0a0a/ff4444?text=Toman+Preta'] },
-  { id: 57, cat: 'anime', name: 'Funko Izuku Midoriya',            desc: 'Deku do My Hero Academia. One For All liberado!',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a2a/13d203?text=Funko+Deku',           'https://placehold.co/600x400/0a0a1a/4fc3f7?text=Deku+Full+Cowling'] },
-  { id: 58, cat: 'anime', name: 'Camisa Bleach — Ichigo',           desc: 'Shinigami Substituto no peito. Zanpakuto na alma.',                    price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/ff4444?text=Bleach+Ichigo',         'https://placehold.co/600x400/f5f5f5/111111?text=Bleach+Branca'] },
-  { id: 59, cat: 'anime', name: 'Funko Pikachu — Colecionável',    desc: 'O mais famoso dos Pokémon em vinil. Eletrizante.',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/FFD700/111111?text=Funko+Pikachu',        'https://placehold.co/600x400/FFD700/cc0000?text=Pikachu+Deitado'] },
-  { id: 60, cat: 'anime', name: 'Funko Evangelion Unit-01',        desc: 'Unidade 01 em escala detalhada. Neon Genesis collector.',               price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/3d0066/13d203?text=Eva+Unit-01',           'https://placehold.co/600x400/1a0000/ff4444?text=Eva+Berserk'] },
-  { id: 61, cat: 'anime', name: 'Camisa Hunter x Hunter',           desc: 'Gon, Killua, Hisoka. HxH em qualquer estampa.',                        price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a1a0a/13d203?text=Hunter+x+Hunter',       'https://placehold.co/600x400/111111/FFD700?text=HxH+Preta'] },
-  { id: 62, cat: 'anime', name: 'Funko Spy x Family — Anya',       desc: 'Heh! Anya é fofa demais. Funko em vinil.',                             price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/ffd6e0/111111?text=Anya+Spy+Family',       'https://placehold.co/600x400/ff9ec8/111111?text=Anya+Sorrindo'] },
-  { id: 63, cat: 'anime', name: 'Camisa Chainsaw Man',              desc: 'Denji e o Pochita no peito. Violento e estiloso.',                      price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/1a0000/ff4444?text=Chainsaw+Man',          'https://placehold.co/600x400/ff6b6b/ffffff?text=CSM+Pochita'] },
-  { id: 64, cat: 'anime', name: 'Camisa Solo Leveling',             desc: 'Sung Jinwoo ascendendo. Shadow Monarch no street.',                     price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Solo+Leveling',         'https://placehold.co/600x400/111111/B100c7?text=Shadow+Monarch'] },
-  { id: 65, cat: 'anime', name: 'Funko Sasuke Uchiha',             desc: 'Rinnegan ativado, Chidori carregado. Sasuke collector.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Funko+Sasuke',         'https://placehold.co/600x400/111111/ffffff?text=Sasuke+Adulto'] },
-  { id: 66, cat: 'anime', name: 'Funko Pop Anime — Coleção',        desc: 'Ichigo, Luffy, Naruto, Goku. Vários personagens disponíveis.',          price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/FFD700?text=Funko+Pop+Anime',        'https://placehold.co/600x400/1a0a1a/13d203?text=Funko+Colorido'] },
+  { id: 49, cat: 'outros', name: 'Funko Monkey D. Luffy',          desc: 'Rei dos piratas em resina. Pose de batalha, Gear 5 disponível.',    price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/FF6B35?text=Funko+Luffy',        'https://placehold.co/600x400/0a0a0a/ffffff?text=Luffy+Gear+5'] },
+  { id: 50, cat: 'outros', name: 'Funko Levi Ackerman',             desc: 'O capitão da Survey Corps em escala 1:8. Detalhes impressionantes.',  price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/1a1a1a/c0c0c0?text=Funko+Levi',          'https://placehold.co/600x400/111111/ffffff?text=Levi+Combat'] },
+  { id: 51, cat: 'outros', name: 'Camisa One Piece Oversized',       desc: 'Piratas do chapéu de palha no peito. Nakama de verdade.',             price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a2a/FF6B35?text=Camisa+One+Piece',     'https://placehold.co/600x400/111111/FF6B35?text=One+Piece+Preta'] },
+  { id: 52, cat: 'outros', name: 'Camisa Attack on Titan',           desc: 'Survey Corps uniform inspired. Cores da 104th Cadet Corps.',          price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/1a1a0a/5f6b4e?text=Attack+on+Titan',      'https://placehold.co/600x400/2a3a2a/c0c0c0?text=AoT+Survey+Corps'] },
+  { id: 53, cat: 'outros', name: 'Camisa Jujutsu Kaisen',            desc: 'Maldições e muito estilo. Gojo Satoru aprova.',                       price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Jujutsu+Kaisen',       'https://placehold.co/600x400/f5f5f5/111111?text=JJK+Branca'] },
+  { id: 54, cat: 'outros', name: 'Funko Goku Super Saiyan Blue',    desc: 'Cabelo azul, poder além dos limites. Dragon Ball Super.',              price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a1a3a/4fc3f7?text=Goku+SSB',             'https://placehold.co/600x400/0a0a0a/c0c0c0?text=Goku+UI'] },
+  { id: 55, cat: 'outros', name: 'Funko Vegeta SSJ',                desc: 'Príncipe dos Saiyajins em postura de combate. Lenda.',                 price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/1a0a1a/B100c7?text=Funko+Vegeta',        'https://placehold.co/600x400/0a0a0a/ffffff?text=Vegeta+UI'] },
+  { id: 56, cat: 'outros', name: 'Camisa Tokyo Revengers',           desc: 'Toman Gang na tela. Mikey e Draken de verdade.',                       price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/FFD700?text=Tokyo+Revengers',       'https://placehold.co/600x400/1a0a0a/ff4444?text=Toman+Preta'] },
+  { id: 57, cat: 'outros', name: 'Funko Izuku Midoriya',            desc: 'Deku do My Hero Academia. One For All liberado!',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a2a/13d203?text=Funko+Deku',           'https://placehold.co/600x400/0a0a1a/4fc3f7?text=Deku+Full+Cowling'] },
+  { id: 58, cat: 'outros', name: 'Camisa Bleach — Ichigo',           desc: 'Shinigami Substituto no peito. Zanpakuto na alma.',                    price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/ff4444?text=Bleach+Ichigo',         'https://placehold.co/600x400/f5f5f5/111111?text=Bleach+Branca'] },
+  { id: 59, cat: 'outros', name: 'Funko Pikachu — Colecionável',    desc: 'O mais famoso dos Pokémon em vinil. Eletrizante.',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/FFD700/111111?text=Funko+Pikachu',        'https://placehold.co/600x400/FFD700/cc0000?text=Pikachu+Deitado'] },
+  { id: 60, cat: 'outros', name: 'Funko Evangelion Unit-01',        desc: 'Unidade 01 em escala detalhada. Neon Genesis collector.',               price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/3d0066/13d203?text=Eva+Unit-01',           'https://placehold.co/600x400/1a0000/ff4444?text=Eva+Berserk'] },
+  { id: 61, cat: 'outros', name: 'Camisa Hunter x Hunter',           desc: 'Gon, Killua, Hisoka. HxH em qualquer estampa.',                        price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a1a0a/13d203?text=Hunter+x+Hunter',       'https://placehold.co/600x400/111111/FFD700?text=HxH+Preta'] },
+  { id: 62, cat: 'outros', name: 'Funko Spy x Family — Anya',       desc: 'Heh! Anya é fofa demais. Funko em vinil.',                             price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/ffd6e0/111111?text=Anya+Spy+Family',       'https://placehold.co/600x400/ff9ec8/111111?text=Anya+Sorrindo'] },
+  { id: 63, cat: 'outros', name: 'Camisa Chainsaw Man',              desc: 'Denji e o Pochita no peito. Violento e estiloso.',                      price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/1a0000/ff4444?text=Chainsaw+Man',          'https://placehold.co/600x400/ff6b6b/ffffff?text=CSM+Pochita'] },
+  { id: 64, cat: 'outros', name: 'Camisa Solo Leveling',             desc: 'Sung Jinwoo ascendendo. Shadow Monarch no street.',                     price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Solo+Leveling',         'https://placehold.co/600x400/111111/B100c7?text=Shadow+Monarch'] },
+  { id: 65, cat: 'outros', name: 'Funko Sasuke Uchiha',             desc: 'Rinnegan ativado, Chidori carregado. Sasuke collector.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/9B59B6?text=Funko+Sasuke',         'https://placehold.co/600x400/111111/ffffff?text=Sasuke+Adulto'] },
+  { id: 66, cat: 'outros', name: 'Funko Pop outros — Coleção',        desc: 'Ichigo, Luffy, Naruto, Goku. Vários personagens disponíveis.',          price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/FFD700?text=Funko+Pop+outros',        'https://placehold.co/600x400/1a0a1a/13d203?text=Funko+Colorido'] },
 
   /* ════════════════════════════════════════════
-     TECH & ACESSÓRIOS
+     outros & ACESSÓRIOS
   ════════════════════════════════════════════ */
   {
-    id: 67, cat: 'tech',
+    id: 67, cat: 'outros',
     name: 'Teclado AULA WIN60 HE Magnético',
     desc: 'Hall Effect magnético — para quem leva gaming a sério.',
     price: ' Consultar disponibilidade',
@@ -354,38 +354,38 @@ const PRODUCTS = [
     ],
   },
   {
-    id: 68, cat: 'tech',
+    id: 68, cat: 'outros',
     name: 'Smartwatch HW Ultra 9 Pro',
     desc: 'GPS, NFC, monitor cardíaco. Parece de R$2k, custa bem menos.',
     price: ' Consultar disponibilidade',
     imgs: ['https://ae-pic-a1.aliexpress-media.com/kf/S3a1a5d6aa0d74e16ab455ac88d0e16a6G.jpg_220x220q75.jpg_.avif'],
   },
   {
-    id: 69, cat: 'tech',
+    id: 69, cat: 'outros',
     name: 'Fone Bluetooth ANC Pro',
     desc: 'Cancelamento de ruído ativo — ignora o chefe e o vizinho.',
     price: ' Consultar disponibilidade',
     imgs: ['https://ae-pic-a1.aliexpress-media.com/kf/S73c05e4de5ea4ce5ac1e03e0148fa1e9O.jpg_220x220q75.jpg_.avif'],
   },
-  { id: 70, cat: 'tech', name: 'Mouse Gamer Sem Fio 26000 DPI',     desc: 'Sensor óptico de alta precisão, botão lateral programável.',            price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Mouse+Gamer',           'https://placehold.co/600x400/0a0a0a/B100c7?text=Mouse+RGB'] },
-  { id: 71, cat: 'tech', name: 'Mousepad Gamer XL RGB',              desc: '900x400mm, iluminação RGB nas bordas, superfície de tecido.',           price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a0a/13d203?text=Mousepad+XL+RGB'] },
-  { id: 72, cat: 'tech', name: 'Webcam Full HD 1080p 60fps',         desc: 'Ideal para streaming e reuniões. Plug and play, sem driver.',           price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Webcam+HD'] },
-  { id: 73, cat: 'tech', name: 'Mini Projetor Portátil 4K',          desc: '300 polegadas de imagem no bolso. Bateria interna de 4h.',              price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a0a/FFD700?text=Mini+Projetor+4K'] },
-  { id: 74, cat: 'tech', name: 'Carregador Sem Fio 15W MagSafe',     desc: 'Carregamento rápido por indução. Compatível iPhone e Android.',         price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/13d203?text=Carregador+Wireless'] },
-  { id: 75, cat: 'tech', name: 'Power Bank 20000mAh 65W',            desc: 'Carrega notebook, celular e tablet. Display LCD de status.',            price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Power+Bank+20000mAh'] },
-  { id: 76, cat: 'tech', name: 'Luminária LED RGB Desk',              desc: '16 milhões de cores, controle por app. Ilumina todo seu setup.',        price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/B100c7?text=Luminária+LED+RGB',   'https://placehold.co/600x400/0a1a0a/13d203?text=LED+Verde'] },
-  { id: 77, cat: 'tech', name: 'Caixa de Som Bluetooth JBL Style',   desc: 'Grave potente, resistente a água IPX7, 12h de bateria.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Caixa+Bluetooth',     'https://placehold.co/600x400/0a0a0a/ffffff?text=Speaker+Preto'] },
-  { id: 78, cat: 'tech', name: 'Ring Light 26cm Profissional',        desc: 'Temperatura ajustável, suporte de celular incluso.',                    price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Ring+Light+26cm'] },
-  { id: 79, cat: 'tech', name: 'Hub USB-C 7 em 1',                    desc: 'HDMI 4K, USB 3.0 ×3, SD card, carregamento 100W.',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Hub+USB-C+7em1'] },
-  { id: 80, cat: 'tech', name: 'SSD Externo Portátil 1TB',            desc: '2.000 MB/s de leitura. Cabo USB-C ultra rápido.',                       price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=SSD+Externo+1TB',     'https://placehold.co/600x400/0a0a2a/4fc3f7?text=SSD+Azul'] },
-  { id: 81, cat: 'tech', name: 'Pen Drive 256GB USB 3.2',             desc: 'Velocidade de transferência até 400 MB/s. Pequenininho.',               price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/FFD700?text=Pen+Drive+256GB'] },
-  { id: 82, cat: 'tech', name: 'Controle Gamer Sem Fio',              desc: 'Compatível PC, Android, iOS e Switch. Vibração HD.',                   price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Controle+Gamer',      'https://placehold.co/600x400/f5f5f5/111111?text=Controle+Branco'] },
-  { id: 83, cat: 'tech', name: 'Headset Gamer 7.1 Surround',          desc: 'Som posicional preciso, microfone removível com cancelamento.',          price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Headset+Gamer',       'https://placehold.co/600x400/f5f5f5/111111?text=Headset+Branco'] },
-  { id: 84, cat: 'tech', name: 'Placa de Captura HDMI 4K',            desc: 'Transmita e grave gameplay em 4K 60fps. Plug and play.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ff4444?text=Placa+Captura+HDMI'] },
-  { id: 85, cat: 'tech', name: 'Mesa Digitalizadora A5',               desc: '8192 níveis de pressão, 8 teclas programáveis. Pro.',                  price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/13d203?text=Mesa+Digitalizadora'] },
-  { id: 86, cat: 'tech', name: 'Câmera IP WiFi 360°',                  desc: 'Full HD, visão noturna, detecção de movimento.',                        price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Camera+IP+WiFi'] },
-  { id: 87, cat: 'tech', name: 'Suporte Notebook Ajustável',           desc: 'Alumínio, 6 ângulos, compatível 10–17 polegadas.',                     price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/888888/111111?text=Suporte+Notebook'] },
-  { id: 88, cat: 'tech', name: 'Microfone Condensador USB',            desc: 'Padrão cardióide, ideal para podcast e streaming.',                     price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/c0c0c0?text=Microfone+Condensador'] },
+  { id: 70, cat: 'outros', name: 'Mouse Gamer Sem Fio 26000 DPI',     desc: 'Sensor óptico de alta precisão, botão lateral programável.',            price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Mouse+Gamer',           'https://placehold.co/600x400/0a0a0a/B100c7?text=Mouse+RGB'] },
+  { id: 71, cat: 'outros', name: 'Mousepad Gamer XL RGB',              desc: '900x400mm, iluminação RGB nas bordas, superfície de tecido.',           price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a0a/13d203?text=Mousepad+XL+RGB'] },
+  { id: 72, cat: 'outros', name: 'Webcam Full HD 1080p 60fps',         desc: 'Ideal para streaming e reuniões. Plug and play, sem driver.',           price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Webcam+HD'] },
+  { id: 73, cat: 'outros', name: 'Mini Projetor Portátil 4K',          desc: '300 polegadas de imagem no bolso. Bateria interna de 4h.',              price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a0a/FFD700?text=Mini+Projetor+4K'] },
+  { id: 74, cat: 'outros', name: 'Carregador Sem Fio 15W MagSafe',     desc: 'Carregamento rápido por indução. Compatível iPhone e Android.',         price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/13d203?text=Carregador+Wireless'] },
+  { id: 75, cat: 'outros', name: 'Power Bank 20000mAh 65W',            desc: 'Carrega notebook, celular e tablet. Display LCD de status.',            price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Power+Bank+20000mAh'] },
+  { id: 76, cat: 'outros', name: 'Luminária LED RGB Desk',              desc: '16 milhões de cores, controle por app. Ilumina todo seu setup.',        price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/B100c7?text=Luminária+LED+RGB',   'https://placehold.co/600x400/0a1a0a/13d203?text=LED+Verde'] },
+  { id: 77, cat: 'outros', name: 'Caixa de Som Bluetooth JBL Style',   desc: 'Grave potente, resistente a água IPX7, 12h de bateria.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Caixa+Bluetooth',     'https://placehold.co/600x400/0a0a0a/ffffff?text=Speaker+Preto'] },
+  { id: 78, cat: 'outros', name: 'Ring Light 26cm Profissional',        desc: 'Temperatura ajustável, suporte de celular incluso.',                    price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Ring+Light+26cm'] },
+  { id: 79, cat: 'outros', name: 'Hub USB-C 7 em 1',                    desc: 'HDMI 4K, USB 3.0 ×3, SD card, carregamento 100W.',                      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Hub+USB-C+7em1'] },
+  { id: 80, cat: 'outros', name: 'SSD Externo Portátil 1TB',            desc: '2.000 MB/s de leitura. Cabo USB-C ultra rápido.',                       price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=SSD+Externo+1TB',     'https://placehold.co/600x400/0a0a2a/4fc3f7?text=SSD+Azul'] },
+  { id: 81, cat: 'outros', name: 'Pen Drive 256GB USB 3.2',             desc: 'Velocidade de transferência até 400 MB/s. Pequenininho.',               price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/FFD700?text=Pen+Drive+256GB'] },
+  { id: 82, cat: 'outros', name: 'Controle Gamer Sem Fio',              desc: 'Compatível PC, Android, iOS e Switch. Vibração HD.',                   price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Controle+Gamer',      'https://placehold.co/600x400/f5f5f5/111111?text=Controle+Branco'] },
+  { id: 83, cat: 'outros', name: 'Headset Gamer 7.1 Surround',          desc: 'Som posicional preciso, microfone removível com cancelamento.',          price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/13d203?text=Headset+Gamer',       'https://placehold.co/600x400/f5f5f5/111111?text=Headset+Branco'] },
+  { id: 84, cat: 'outros', name: 'Placa de Captura HDMI 4K',            desc: 'Transmita e grave gameplay em 4K 60fps. Plug and play.',                price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ff4444?text=Placa+Captura+HDMI'] },
+  { id: 85, cat: 'outros', name: 'Mesa Digitalizadora A5',               desc: '8192 níveis de pressão, 8 teclas programáveis. Pro.',                  price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/13d203?text=Mesa+Digitalizadora'] },
+  { id: 86, cat: 'outros', name: 'Câmera IP WiFi 360°',                  desc: 'Full HD, visão noturna, detecção de movimento.',                        price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/ffffff?text=Camera+IP+WiFi'] },
+  { id: 87, cat: 'outros', name: 'Suporte Notebook Ajustável',           desc: 'Alumínio, 6 ângulos, compatível 10–17 polegadas.',                     price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/888888/111111?text=Suporte+Notebook'] },
+  { id: 88, cat: 'outros', name: 'Microfone Condensador USB',            desc: 'Padrão cardióide, ideal para podcast e streaming.',                     price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/111111/c0c0c0?text=Microfone+Condensador'] },
 
   /* ════════════════════════════════════════════
      ESPORTE
@@ -450,7 +450,7 @@ const PRODUCTS = [
   { id: 108, cat: 'esporte', name: 'Joelheira Compressão Pro',          desc: 'Estabilização patelar, neoprene respirável.',                      price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/111111/13d203?text=Joelheira+Compressão'] },
   { id: 109, cat: 'esporte', name: 'Cinto de Força 10cm Couro',         desc: 'Couro legítimo 10mm espessura, fivela dupla robusta.',             price: ' Consultar disponibilidade',  imgs: ['https://placehold.co/600x400/5c3317/ffffff?text=Cinto+Musculação'] },
   { id: 110, cat: 'esporte', name: 'Camisa de Ciclismo UV 50+',         desc: 'Proteção solar embutida, bolso traseiro triplo, zíper full.',      price: ' Consultar disponibilidade', imgs: ['https://placehold.co/600x400/0a0a1a/13d203?text=Camisa+Ciclismo',       'https://placehold.co/600x400/1a0000/ffffff?text=Camisa+Bike+Vermelha'] },
-// CATEGORIA OUTROS//
+// CATEGORIA outros//
 {
     id: 112, cat: 'outros',
     name: 'Colares',
