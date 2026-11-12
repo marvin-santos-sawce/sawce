@@ -4849,6 +4849,7 @@ footer {
 @media (max-width: 600px) {
   .header-inner {
     padding: 0 1rem;
+    gap: 0.65rem;
   }
 
   .header-logo {
@@ -4864,19 +4865,74 @@ footer {
     font-size: 0.5rem;
   }
 
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  #mobile-menu-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hero {
+    min-height: 500px;
+  }
+
   .hero-title {
     font-size: clamp(3.2rem, 14vw, 4.7rem);
   }
 
+  .hero-copy-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
   .hero-buttons {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .hero-buttons .btn-primary,
   .hero-buttons .btn-ghost {
     flex: 1 1 auto;
+    width: 100%;
     padding-right: 0.75rem;
     padding-left: 0.75rem;
+    justify-content: center;
+  }
+
+  .search-wrap {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .catalog-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters {
+    width: 100%;
+    gap: 0.45rem;
+  }
+
+  .filter-pill {
+    flex: 1 1 calc(50% - 0.45rem);
+    justify-content: center;
+    text-align: center;
+  }
+
+  .catalog-help {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .catalog-help > span {
+    flex: 1;
   }
 
   #products {
@@ -4900,6 +4956,17 @@ footer {
 
   #products .product-img-wrap img {
     aspect-ratio: 4 / 5;
+  }
+
+  #products .product-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  #products .btn-buy,
+  #products .btn-personalize,
+  #products .btn-add-cart {
+    width: 100%;
   }
 
   #products .product-name {
@@ -4997,5 +5064,76 @@ footer {
 
   .footer-socials {
     padding-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-inner {
+    height: 58px;
+    padding: 0 0.85rem;
+  }
+
+  .brand-lockup {
+    min-width: 0;
+  }
+
+  .brand-wordmark {
+    min-width: 0;
+  }
+
+  .brand-wordmark strong {
+    font-size: 0.95rem;
+  }
+
+  .brand-wordmark small {
+    letter-spacing: 0.12em;
+  }
+
+  .hero {
+    min-height: 440px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.7rem, 15vw, 3.7rem);
+  }
+
+  .hero-badge {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-sub {
+    font-size: 0.9rem;
+  }
+
+  .btn-primary,
+  .btn-ghost,
+  .btn-buy,
+  .btn-add-cart,
+  .btn-personalize {
+    min-height: 44px;
+  }
+
+  #products .product-name {
+    font-size: 1.7rem;
+  }
+
+  #products .product-body {
+    padding-top: 0.8rem;
+  }
+
+  #mobile-menu a {
+    padding: 0.8rem 1rem;
+    font-size: 0.72rem;
+  }
+
+  .filter-pill {
+    min-height: 34px;
+    font-size: 0.62rem;
+  }
+
+  .catalog-help {
+    gap: 0.5rem;
+    font-size: 0.7rem;
   }
 }
