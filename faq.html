@@ -20,60 +20,49 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="index.html"><img src="https://i.imgur.com/CaofCmF.png" alt="Sawce Company" class="header-logo" /></a>
+      <a href="index.html" class="brand-lockup" aria-label="Sawce Company — início">
+        <img src="assets/sawce-mark.png" alt="" class="header-logo" />
+        <span class="brand-wordmark"><strong>SAWCE</strong><small>Company</small></span>
+      </a>
       <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
-        <a href="index.html"    class="nav-link">Home</a>
-        <a href="index.html#products"   class="nav-link">Produtos</a>
-        <a href="index.html#quem-somos" class="nav-link">Quem Somos</a>
-        <a href="faq.html"      class="nav-link active">Dúvidas Frequentes</a>
-        <a href="rastreamento.html#rastreamento" class="nav-link">Rastreamento</a>
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#products" class="nav-link">Produtos</a>
+        <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+        <a href="rastreamento.html" class="nav-link">Rastrear pedido</a>
+        <a href="faq.html" class="nav-link active">Dúvidas frequentes</a>
       </nav>
-      <a href="index.html#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
-      <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
+      <div class="header-actions">
+        <a href="index.html#products" class="btn-primary btn-primary--sm" id="header-cta">Ver catálogo</a>
+        <button id="mobile-menu-button" aria-label="Abrir menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
     </div>
     <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
-      <a href="index.html">Home</a>
+      <a href="index.html">Início</a>
       <a href="index.html#products">Produtos</a>
-      <a href="index.html#quem-somos">Quem Somos</a>
-      <a href="faq.html">Dúvidas Frequentes</a>
-      <a href="index.html#quem-somos">Contato</a>
+      <a href="index.html#como-funciona">Como funciona</a>
+      <a href="rastreamento.html">Rastrear pedido</a>
+      <a href="faq.html">Dúvidas frequentes</a>
     </nav>
   </header>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span class="ticker-item">❓ Dúvidas? Confira nossa FAQ</span>
-      <span class="ticker-item">★ Frete Grátis para Todo Brasil</span>
-      <span class="ticker-item">🔥 Novidades Todo Mês</span>
-      <span class="ticker-item">✅ Qualidade Garantida</span>
-      <span class="ticker-item">❓ Tire suas dúvidas aqui</span>
-      <span class="ticker-item">★ Atendimento Via WhatsApp</span>
-      <span class="ticker-item">❓ Dúvidas? Confira nossa FAQ</span>
-      <span class="ticker-item">★ Frete Grátis para Todo Brasil</span>
-      <span class="ticker-item">🔥 Novidades Todo Mês</span>
-      <span class="ticker-item">✅ Qualidade Garantida</span>
-      <span class="ticker-item">❓ Tire suas dúvidas aqui</span>
-      <span class="ticker-item">★ Atendimento Via WhatsApp</span>
-      <span class="ticker-item">❓ Dúvidas? Confira nossa FAQ</span>
-      <span class="ticker-item">★ Frete Grátis para Todo Brasil</span>
-      <span class="ticker-item">🔥 Novidades Todo Mês</span>
-    </div>
-  </div>
+  <main class="faq-page-main">
+    <div class="faq-page-grid">
+      <section class="faq-hero">
+        <div class="faq-hero-content">
+          <p class="section-tag">Perguntas frequentes</p>
+          <h1 class="faq-page-title">Tire suas<br><span>dúvidas.</span></h1>
+          <p class="faq-page-intro">Tudo sobre sua compra na Sawce Company, do primeiro contato até a entrega.</p>
+          <div class="faq-track-link">
+            <p>Já fez seu pedido?</p>
+            <a href="rastreamento.html">Rastrear meu pedido <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </div>
+        </div>
+      </section>
 
-  <!-- FAQ HERO -->
-  <section class="faq-hero">
-    <div class="faq-hero-content">
-      <p class="hero-badge fade-up">❓ Perguntas Frequentes</p>
-      <h1 class="hero-title fade-up delay-1">TIRE SUAS<br><span>DÚVIDAS</span></h1>
-      <p class="hero-sub fade-up delay-2">Aqui você encontra respostas para as principais perguntas sobre a Sawce Company.</p>
-    </div>
-  </section>
-
-  <!-- FAQ SECTION -->
-  <section id="faq-section">
-    <div class="faq-inner">
-      <div class="faq-container">
+      <!-- FAQ SECTION -->
+      <section id="faq-section">
+        <div class="faq-inner">
+          <div class="faq-container">
 
         <!-- FAQ Item 1 -->
         <div class="faq-item">
@@ -193,6 +182,8 @@ Eles são produzidos pelos mesmos fornecedores e fábricas parceiras que trabalh
       </div>
     </div>
   </section>
+    </div>
+  </main>
 
   <!-- CTA SECTION -->
   <section class="faq-cta">

@@ -41,7 +41,7 @@
   <div id="popup-overlay" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Promoção especial">
     <div class="popup-content">
       <button id="close-popup" class="popup-close-btn" aria-label="Fechar promoção">&times;</button>
-      <img src="https://i.imgur.com/sPRoFjr.jpeg" alt="Eleições 2026" class="popup-img" />
+      <img src="https://i.imgur.com/BnTJwjq.jpeg" alt="camisa GTA VI" class="popup-img" />
       <a id="popup-whatsapp" href="#" class="popup-whatsapp-btn" target="_blank" rel="noopener noreferrer">
         💬 Quero essa promoção!
       </a>
@@ -110,24 +110,29 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="#hero"><img src="https://i.imgur.com/CaofCmF.png" alt="Sawce Company" class="header-logo" /></a>
+      <a href="#hero" class="brand-lockup" aria-label="Sawce Company — início">
+        <img src="assets/sawce-mark.png" alt="" class="header-logo" />
+        <span class="brand-wordmark"><strong>SAWCE</strong><small>Company</small></span>
+      </a>
       <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
-        <a href="#hero"       class="nav-link">Home</a>
+        <a href="#hero"       class="nav-link">Início</a>
         <a href="#products"   class="nav-link">Produtos</a>
         <a href="#como-funciona" class="nav-link">Como funciona</a>
         <a href="#quem-somos" class="nav-link">Quem Somos</a>
         <a href="faq.html"    class="nav-link">Dúvidas Frequentes</a>
         <a href="rastreamento.html" class="nav-link">Rastreamento</a>
       </nav>
-      <a href="#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
-      <button id="cart-btn" class="cart-icon-btn" aria-label="Abrir carrinho">
-        🛒
-        <span id="cart-badge" class="cart-badge">0</span>
-      </button>
-      <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
+      <div class="header-actions">
+        <a href="#products" class="btn-primary btn-primary--sm" id="header-cta">Ver catálogo</a>
+        <button id="cart-btn" class="cart-icon-btn" aria-label="Abrir carrinho">
+          <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+          <span id="cart-badge" class="cart-badge">0</span>
+        </button>
+        <button id="mobile-menu-button" aria-label="Abrir menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
     </div>
     <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
-      <a href="#hero">Home</a>
+      <a href="#hero">Início</a>
       <a href="#products">Produtos</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#quem-somos">Quem Somos</a>
@@ -136,50 +141,45 @@
     </nav>
   </header>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span class="ticker-item">🐉 Importados Direto da China</span>
-      <span class="ticker-item">★ Frete Grátis para todo o mundo</span>
-      <span class="ticker-item">🔥 Novidades Todo Mês</span>
-      <span class="ticker-item">✅ Qualidade Garantida</span>
-      <span class="ticker-item">🐉 Sawce Company</span>
-      <span class="ticker-item">★ Seu Estilo, Nossa Missão</span>
-      <span class="ticker-item">🔥 Milhares de produtos</span>
-      <span class="ticker-item">✅ Atendimento Via WhatsApp</span>
-      <span class="ticker-item">🐉 Importados Direto da China</span>
-      <span class="ticker-item">★ Frete Grátis para todo o mundo</span>
-      <span class="ticker-item">🔥 Novidades Todo Mês</span>
-      <span class="ticker-item">✅ Qualidade Garantida</span>
-      <span class="ticker-item">🐉 Sawce Company</span>
-      <span class="ticker-item">★ Seu Estilo, Nossa Missão</span>
-      <span class="ticker-item">🔥 Milhares de produtos</span>
-      <span class="ticker-item">✅ Atendimento Via WhatsApp</span>
-    </div>
-  </div>
-
   <!-- HERO -->
   <section class="hero" id="hero">
-   <div class="hero-bg-carousel" aria-hidden="true">
-  <div class="hero-slide active" style="background-image:url('https://i.imgur.com/kmVBz5l.png')"></div>
-  <div class="hero-slide" style="background-image:url('https://i.imgur.com/qk4Vuu9.png')"></div>
-  <div class="hero-slide" style="background-image:url('https://i.imgur.com/kmVBz5l.png')"></div>
-  <div class="hero-slide" style="background-image:url('https://i.imgur.com/qk4Vuu9.png')"></div>
-</div>
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-gradient" aria-hidden="true"></div>
-    <div class="hero-content">
-      <p class="hero-badge fade-up">🐉 Importando com qualidade desde 2024</p>
-      <h1 class="hero-title fade-up delay-1">A SUA<br><span>IMPORTADORA</span></h1>
-      <p class="hero-sub fade-up delay-2">Importando tudo o que você precisa, com a melhor qualidade e no menor preço<br></p>
-      <div class="hero-buttons fade-up delay-3">
-        <a href="#products"   class="btn-primary">Ver Catálogo</a>
-        <a href="#quem-somos" class="btn-ghost">Quem Somos</a>
+    <div class="hero-shell">
+      <div class="hero-content">
+        <p class="hero-badge">Importando com qualidade desde 2024</p>
+        <div class="hero-copy-row">
+          <div class="hero-copy">
+            <h1 class="hero-title">A sua importadora.</h1>
+            <p class="hero-sub">Importando tudo que você precisa com a melhor qualidade e no menor preço.</p>
+          </div>
+          <div class="hero-buttons">
+            <a href="#products" class="btn-primary">Ver catálogo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+            <a href="https://wa.me/5551997421676?text=Ol%C3%A1%21%20Quero%20fazer%20uma%20encomenda%20pela%20Sawce." class="btn-ghost" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Sob encomenda
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS -->
-  <div class="stats-bar">
+  <!-- TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="ticker-item">Importados direto da China <span>★</span></span>
+      <span class="ticker-item">Frete grátis <span>★</span></span>
+      <span class="ticker-item">Novidades todo mês <span>★</span></span>
+      <span class="ticker-item">Qualidade garantida <span>★</span></span>
+      <span class="ticker-item">Atendimento via WhatsApp <span>★</span></span>
+      <span class="ticker-item">Seu estilo, nossa missão <span>★</span></span>
+      <span class="ticker-item">Importados direto da China <span>★</span></span>
+      <span class="ticker-item">Frete grátis <span>★</span></span>
+      <span class="ticker-item">Novidades todo mês <span>★</span></span>
+      <span class="ticker-item">Qualidade garantida <span>★</span></span>
+      <span class="ticker-item">Atendimento via WhatsApp <span>★</span></span>
+      <span class="ticker-item">Seu estilo, nossa missão <span>★</span></span>
+    </div>
   </div>
 
   <!-- PRODUCTS -->
@@ -188,36 +188,46 @@
       <div class="products-header">
         <span class="section-tag">Catálogo</span>
         <div class="products-heading-row">
-  <h2 class="section-title">PRODUTOS<br><span style="color:var(--green);">MAIS PROCURADOS</span></h2>
-
-  <div class="search-wrap">
-    <span class="search-icon" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-           fill="none" stroke="currentColor" stroke-width="2"
-           stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </span>
-    <input
-      type="search"
-      id="product-search"
-      class="search-input"
-      placeholder="O que procura?"
-      autocomplete="off"
-      aria-label="Buscar produto"
-    />
-    <button class="search-clear" id="search-clear" aria-label="Limpar busca" hidden>
-      &times;
-    </button>
-  </div>
-</div>
-      </div>
-      <div class="filters" id="filters" role="group" aria-label="Filtrar por categoria">
-        <button class="filter-pill active" data-cat="all">Todos</button>
-        <button class="filter-pill" data-cat="tenis">Calçados</button>
-        <button class="filter-pill" data-cat="camisas">Camisas de time</button>
-        <button class="filter-pill" data-cat="esporte">Esporte</button>
-        <button class="filter-pill" data-cat="outros">Outros</button>
+          <div class="products-heading-copy">
+            <h2 class="section-title">Mais procurados</h2>
+            <p class="products-intro">Gostou de alguma peça? Escolha e fale com a gente pelo WhatsApp.</p>
+          </div>
+          <div class="search-wrap">
+            <span class="search-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
+            <input
+              type="search"
+              id="product-search"
+              class="search-input"
+              placeholder="Buscar produtos"
+              autocomplete="off"
+              aria-label="Buscar produto"
+            />
+            <button class="search-clear" id="search-clear" aria-label="Limpar busca" hidden>&times;</button>
+          </div>
+        </div>
+        <div class="catalog-toolbar">
+          <div class="filters" id="filters" role="group" aria-label="Filtrar por categoria">
+            <button class="filter-pill active" data-cat="all">Todos</button>
+            <button class="filter-pill" data-cat="tenis">Calçados</button>
+            <button class="filter-pill" data-cat="camisas">Camisas de time</button>
+            <button class="filter-pill" data-cat="esporte">Esporte</button>
+            <button class="filter-pill" data-cat="outros">Outros</button>
+          </div>
+          <a
+            class="catalog-help"
+            href="https://wa.me/5551997421676?text=Ol%C3%A1%21%20N%C3%A3o%20encontrei%20o%20que%20procurava%20no%20cat%C3%A1logo.%20Pode%20me%20ajudar%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            <span>Não encontrou o que procura? <strong>Nos chame no WhatsApp</strong></span>
+            <i class="fa-solid fa-arrow-up-right-from-square catalog-help-arrow" aria-hidden="true"></i>
+          </a>
+        </div>
       </div>
       <div class="products-grid" id="products-grid" aria-live="polite"></div>
       <div id="pagination-wrap" class="pagination-wrap"></div>
@@ -283,6 +293,19 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="final-cta-inner">
+      <img src="assets/sawce-dragon.png" alt="" width="668" height="869" loading="lazy" />
+      <div class="final-cta-copy">
+        <span class="section-tag">Atendimento via WhatsApp</span>
+        <h2 class="section-title">Sua próxima peça começa aqui.</h2>
+      </div>
+      <a href="https://wa.me/5551997421676" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chamar no WhatsApp
+      </a>
     </div>
   </section>
 

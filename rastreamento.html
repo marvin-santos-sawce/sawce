@@ -20,109 +20,93 @@
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <a href="index.html"><img src="https://i.imgur.com/CaofCmF.png" alt="Sawce Company" class="header-logo" /></a>
+      <a href="index.html" class="brand-lockup" aria-label="Sawce Company — início">
+        <img src="assets/sawce-mark.png" alt="" class="header-logo" />
+        <span class="brand-wordmark"><strong>SAWCE</strong><small>Company</small></span>
+      </a>
       <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
-        <a href="index.html"    class="nav-link">Home</a>
-        <a href="index.html#products"   class="nav-link">Produtos</a>
-        <a href="index.html#quem-somos" class="nav-link">Quem Somos</a>
-        <a href="faq.html"      class="nav-link">Dúvidas Frequentes</a>
-        <a href="rastreamento.html" class="nav-link active">Rastreamento</a>
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#products" class="nav-link">Produtos</a>
+        <a href="index.html#como-funciona" class="nav-link">Como funciona</a>
+        <a href="rastreamento.html" class="nav-link active">Rastrear pedido</a>
+        <a href="faq.html" class="nav-link">Dúvidas frequentes</a>
       </nav>
-      <a href="index.html#products" class="btn-primary btn-primary--sm" id="header-cta">Ver Catálogo</a>
-      <button id="mobile-menu-button" aria-label="Abrir menu">☰</button>
+      <div class="header-actions">
+        <a href="index.html#products" class="btn-primary btn-primary--sm" id="header-cta">Ver catálogo</a>
+        <button id="mobile-menu-button" aria-label="Abrir menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
     </div>
     <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
-      <a href="index.html">Home</a>
+      <a href="index.html">Início</a>
       <a href="index.html#products">Produtos</a>
-      <a href="index.html#quem-somos">Quem Somos</a>
-      <a href="faq.html">Dúvidas Frequentes</a>
+      <a href="index.html#como-funciona">Como funciona</a>
       <a href="rastreamento.html">Rastreamento</a>
+      <a href="faq.html">Dúvidas frequentes</a>
     </nav>
   </header>
 
-  <!-- TICKER -->
-  <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker">
-      <span class="ticker-item">📦 Rastreie seu pedido em tempo real</span>
-      <span class="ticker-item">★ Frete Grátis para Todo Brasil</span>
-      <span class="ticker-item">🚚 Acompanhamento completo</span>
-      <span class="ticker-item">✅ Qualidade Garantida</span>
-      <span class="ticker-item">📦 Saiba onde está seu pedido</span>
-    </div>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <section class="tracking-section">
+  <main class="tracking-section">
     <div class="tracking-inner">
       <div class="tracking-header">
-        <span class="section-tag">Acompanhamento</span>
-        <h1 class="section-title">RASTREIE SEU<br><span style="color:var(--green);">PEDIDO</span></h1>
-        <p class="tracking-subtitle">Digite o código de rastreamento dos Correios para acompanhar seu pedido em tempo real</p>
-      </div>
-
-      <div class="tracking-form-wrapper">
-  <form id="tracking-form" class="tracking-form" action="https://rastreamento.correios.com.br/app/index.php" method="GET" target="_blank">
-    <div class="form-group-tracking">
-      <input
-        type="text"
-        id="tracking-code"
-        name="objeto" placeholder="Ex: LZ430381595CN"
-        maxlength="13"
-        class="tracking-input"
-        aria-label="Código de rastreamento"
-        required />
-      <button type="submit" class="btn-primary">🔍 Rastrear</button>
-    </div>
-  </form>
-</div>
-        </form>
-      </div>
-
-      <!-- Resultado do rastreamento -->
-      <div id="tracking-result" class="tracking-result hidden">
-        <div class="tracking-status">
-          <h2 id="result-title">Informações do Pacote</h2>
-          <div class="status-badge" id="status-badge"></div>
-        </div>
-
-        <div class="tracking-timeline">
-          <div id="timeline-container" class="timeline"></div>
-        </div>
-
-        <div class="tracking-details">
-          <div class="detail-item">
-            <span class="detail-label">Código:</span>
-            <span id="detail-code" class="detail-value">—</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Remetente:</span>
-            <span id="detail-sender" class="detail-value">—</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Destinatário:</span>
-            <span id="detail-receiver" class="detail-value">—</span>
-          </div>
-          <div class="detail-item">
-            <span class="detail-label">Status Atual:</span>
-            <span id="detail-status" class="detail-value">—</span>
-          </div>
+        <span class="section-tag"><i class="fa-solid fa-box" aria-hidden="true"></i> Acompanhamento</span>
+        <h1 class="section-title">Rastreie seu<br><span>pedido.</span></h1>
+        <p class="tracking-subtitle">Seu próximo favorito está a caminho. Use o código que a Sawce enviou pelo WhatsApp.</p>
+        <div class="tracking-assurance">
+          <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+          <p>A consulta acontece no site oficial dos Correios. Nenhum pagamento é solicitado nesta página.</p>
         </div>
       </div>
 
-      <!-- Mensagem de erro -->
-      <div id="tracking-error" class="tracking-error hidden">
-        <div class="error-icon">⚠️</div>
-        <h3>Pacote não encontrado</h3>
-        <p id="error-message">Verifique o código de rastreamento e tente novamente.</p>
-      </div>
+      <div class="tracking-content">
+        <div class="tracking-form-wrapper">
+          <form id="tracking-form" class="tracking-form" action="https://rastreamento.correios.com.br/app/index.php" method="GET" target="_blank">
+            <label for="tracking-code" class="tracking-label">Código de rastreamento</label>
+            <div class="form-group-tracking">
+              <input
+                type="text"
+                id="tracking-code"
+                name="objeto"
+                placeholder="AA123456789BR"
+                maxlength="13"
+                class="tracking-input"
+                aria-label="Código de rastreamento"
+                required
+              />
+              <button type="submit" class="btn-primary"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Rastrear pedido</button>
+            </div>
+            <p class="tracking-hint">O código tem 13 caracteres e é enviado pelo WhatsApp após o envio.</p>
+            <p class="tracking-instruction">Cole o código na página dos Correios e conclua a verificação de segurança, se solicitada.</p>
+          </form>
 
-      <!-- Loading -->
-      <div id="tracking-loading" class="tracking-loading hidden">
-        <div class="spinner"></div>
-        <p>Rastreando seu pedido...</p>
+          <div id="tracking-loading" class="tracking-loading hidden" role="status" aria-live="polite">
+            <span class="spinner" aria-hidden="true"></span>
+            <p>Preparando o rastreamento...</p>
+          </div>
+
+          <div id="tracking-error" class="tracking-error hidden" role="alert">
+            <span class="error-icon" aria-hidden="true"><i class="fa-solid fa-circle-exclamation"></i></span>
+            <p id="error-message">Verifique o código de rastreamento e tente novamente.</p>
+          </div>
+
+          <div id="tracking-result" class="tracking-result hidden">
+            <div class="tracking-status">
+              <h2 id="result-title">Informações do pacote</h2>
+              <div class="status-badge" id="status-badge"></div>
+            </div>
+            <div class="tracking-timeline">
+              <div id="timeline-container" class="timeline"></div>
+            </div>
+            <div class="tracking-details">
+              <div class="detail-item"><span class="detail-label">Código:</span><span id="detail-code" class="detail-value">—</span></div>
+              <div class="detail-item"><span class="detail-label">Remetente:</span><span id="detail-sender" class="detail-value">—</span></div>
+              <div class="detail-item"><span class="detail-label">Destinatário:</span><span id="detail-receiver" class="detail-value">—</span></div>
+              <div class="detail-item"><span class="detail-label">Status atual:</span><span id="detail-status" class="detail-value">—</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>

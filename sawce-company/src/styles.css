@@ -1,0 +1,205 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Sawce Company design system — official brand palette only:
+ * Uploaded identity: green #008504, black #0D0D0D, white #FFFFFF, gray #CBCBCB.
+ * Surface, border and interaction shades are derived from these brand primitives.
+ * Fonts: Bebas Neue (display) + Outfit (body).
+ */
+
+@theme inline {
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-deep: var(--deep);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Brand primitives */
+  --sawce-green: oklch(0.53446762 0.18072849 142.6842);
+  --sawce-green-dark: oklch(0.47247926 0.15968170 142.7004);
+  --sawce-black: oklch(0.15906640 0 0);
+  --sawce-text: oklch(1 0 0);
+  --sawce-muted: oklch(0.84211945 0 0);
+  --sawce-surface: color-mix(in oklab, var(--sawce-black) 96%, var(--sawce-text));
+  --sawce-surface2: color-mix(in oklab, var(--sawce-black) 92%, var(--sawce-text));
+  --sawce-border: color-mix(in oklab, var(--sawce-black) 80%, var(--sawce-muted));
+
+  /* Semantic tokens */
+  --background: var(--sawce-black);
+  --deep: var(--sawce-surface);
+  --foreground: var(--sawce-text);
+  --card: var(--sawce-surface2);
+  --card-foreground: var(--sawce-text);
+  --popover: var(--sawce-surface2);
+  --popover-foreground: var(--sawce-text);
+  --primary: var(--sawce-green);
+  --primary-foreground: var(--sawce-text);
+  --secondary: var(--sawce-surface2);
+  --secondary-foreground: var(--sawce-text);
+  --muted: var(--sawce-surface2);
+  --muted-foreground: var(--sawce-muted);
+  --accent: var(--sawce-muted);
+  --accent-foreground: var(--sawce-black);
+  --destructive: var(--sawce-surface2);
+  --destructive-foreground: var(--sawce-text);
+  --border: var(--sawce-border);
+  --input: var(--sawce-border);
+  --ring: var(--sawce-green);
+
+  --chart-1: var(--sawce-green);
+  --chart-2: var(--sawce-muted);
+  --chart-3: var(--sawce-green-dark);
+  --chart-4: var(--sawce-muted);
+  --chart-5: var(--sawce-text);
+  --sidebar: var(--sawce-surface);
+  --sidebar-foreground: var(--sawce-text);
+  --sidebar-primary: var(--sawce-green);
+  --sidebar-primary-foreground: var(--sawce-text);
+  --sidebar-accent: var(--sawce-surface2);
+  --sidebar-accent-foreground: var(--sawce-text);
+  --sidebar-border: var(--sawce-border);
+  --sidebar-ring: var(--sawce-green);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+    line-height: 0.92;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--sawce-black);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--sawce-green);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .eyebrow {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: uppercase;
+    color: var(--sawce-muted);
+    &::before {
+      content: "";
+      width: 0.4rem;
+      height: 0.4rem;
+      background: var(--sawce-green);
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+@utility animate-rise {
+  animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
