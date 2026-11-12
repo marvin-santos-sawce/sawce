@@ -41,7 +41,7 @@
   <div id="popup-overlay" class="popup-overlay" role="dialog" aria-modal="true" aria-label="Promoção especial">
     <div class="popup-content">
       <button id="close-popup" class="popup-close-btn" aria-label="Fechar promoção">&times;</button>
-      <img src="https://i.imgur.com/lZRcnEt.jpeg" alt="Eleições 2026" class="popup-img" />
+      <img src="https://i.imgur.com/sPRoFjr.jpeg" alt="Eleições 2026" class="popup-img" />
       <a id="popup-whatsapp" href="#" class="popup-whatsapp-btn" target="_blank" rel="noopener noreferrer">
         💬 Quero essa promoção!
       </a>
@@ -114,6 +114,7 @@
       <nav class="desktop-nav" id="desktop-nav" aria-label="Menu principal">
         <a href="#hero"       class="nav-link">Home</a>
         <a href="#products"   class="nav-link">Produtos</a>
+        <a href="#como-funciona" class="nav-link">Como funciona</a>
         <a href="#quem-somos" class="nav-link">Quem Somos</a>
         <a href="faq.html"    class="nav-link">Dúvidas Frequentes</a>
         <a href="rastreamento.html" class="nav-link">Rastreamento</a>
@@ -128,6 +129,7 @@
     <nav id="mobile-menu" class="hidden" aria-label="Menu mobile">
       <a href="#hero">Home</a>
       <a href="#products">Produtos</a>
+      <a href="#como-funciona">Como funciona</a>
       <a href="#quem-somos">Quem Somos</a>
       <a href="faq.html">Dúvidas Frequentes</a>
       <a href="rastreamento.html">Rastreamento</a>
@@ -222,6 +224,38 @@
     </div>
   </section>
 
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona" class="how-it-works">
+    <div class="how-inner">
+      <div class="how-heading">
+        <span class="section-tag">Como funciona</span>
+        <h2 class="section-title">VOCÊ ESCOLHE.<br><span>NÓS IMPORTAMOS.</span></h2>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <h3>Escolha</h3>
+          <p>Navegue pelo catálogo ou envie uma foto, link ou referência do que procura.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <h3>Chame no WhatsApp</h3>
+          <p>Um clique abre a conversa com o produto escolhido e a mensagem pronta.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <h3>Confirmação</h3>
+          <p>Alinhamos tamanho, cor, prazo e forma de pagamento antes do pedido.</p>
+        </article>
+        <article class="step-card">
+          <span class="step-number">04</span>
+          <h3>Entrega</h3>
+          <p>Acompanhe seu pedido com rastreamento até ele chegar à sua porta.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- QUEM SOMOS -->
   <section id="quem-somos">
     <div class="about-inner">
@@ -264,10 +298,42 @@
       <div class="footer-payment">
         <p class="footer-payment-title">Formas de Pagamento</p>
         <div class="payment-methods">
-          <div class="payment-badge"><span class="payment-icon">💳</span><span>Crédito</span></div>
-          <div class="payment-badge"><span class="payment-icon">💳</span><span>Débito</span></div>
-          <div class="payment-badge"><span class="payment-icon">💰</span><span>Pix</span></div>
-          <div class="payment-badge"><span class="payment-icon">📄</span><span>Boleto</span></div>
+          <div class="payment-badge">
+            <svg class="payment-icon" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="30" height="22" rx="3" />
+              <path d="M1 7h30M6 17h7" />
+              <rect x="6" y="10" width="5" height="4" rx="1" />
+            </svg>
+            <span>Crédito</span>
+          </div>
+          <div class="payment-badge">
+            <svg class="payment-icon" viewBox="0 0 32 24" fill="none" aria-hidden="true">
+              <rect x="1" y="1" width="30" height="22" rx="3" />
+              <path d="M1 7h30M6 17h7" />
+              <rect x="6" y="10" width="5" height="4" rx="1" />
+            </svg>
+            <span>Débito</span>
+          </div>
+          <div class="payment-badge">
+            <svg class="payment-icon payment-icon--pix" viewBox="0 0 32 32" aria-hidden="true">
+              <defs>
+                <mask id="pix-mark-cutouts" maskUnits="userSpaceOnUse" x="0" y="0" width="32" height="32">
+                  <rect width="32" height="32" fill="white" />
+                  <path d="M2 9.4h4.2c1.4 0 2.2.4 3.2 1.4l4.4 4.4c1.2 1.2 3.2 1.2 4.4 0l4.4-4.4c1-1 1.8-1.4 3.2-1.4H30M2 22.6h4.2c1.4 0 2.2-.4 3.2-1.4l4.4-4.4c1.2-1.2 3.2-1.2 4.4 0l4.4 4.4c1 1 1.8 1.4 3.2 1.4H30" fill="none" stroke="black" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                </mask>
+              </defs>
+              <path d="M13.2 1.8a4 4 0 0 1 5.6 0l11.4 11.4a4 4 0 0 1 0 5.6L18.8 30.2a4 4 0 0 1-5.6 0L1.8 18.8a4 4 0 0 1 0-5.6L13.2 1.8Z" fill="currentColor" stroke="none" mask="url(#pix-mark-cutouts)" />
+            </svg>
+            <span>Pix</span>
+          </div>
+          <div class="payment-badge">
+            <svg class="payment-icon" viewBox="0 0 28 32" fill="none" aria-hidden="true">
+              <path d="M5 1h12l7 7v22H5a3 3 0 0 1-3-3V4a3 3 0 0 1 3-3Z" />
+              <path d="M17 1v7h7M7 13h12" />
+              <path d="M7 18v7m3-7v7m2-7v7m4-7v7m2-7v7m3-7v7" />
+            </svg>
+            <span>Boleto</span>
+          </div>
         </div>
         <p class="footer-installment">Parcelamos em até <strong>12×</strong> no cartão (5x sem júros)<span style="color:var(--muted);"></span></p>
       </div>
@@ -295,5 +361,6 @@
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>

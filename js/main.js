@@ -211,9 +211,21 @@ function updateCardImage(wrap, newIdx) {
    CARD BUILDER
 ───────────────────────────────────────────── */
 function buildCard(product) {
-  const { id, cat, name, desc, pricePix, priceCard, imgs } = product;
+  const { id, cat, name, desc, pricePix, priceCard, imgs, illustrative } = product;
   const query   = (els.searchInput?.value ?? '').trim();
   const hasMany = imgs.length > 1;
+
+  function parsePrice(value) {
+    if (typeof value !== 'string' || !value.trim()) return null;
+    const parsed = Number(value.replace(/\./g, '').replace(',', '.'));
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  const currentPrice = parsePrice(pricePix || priceCard);
+  const referencePrice = currentPrice === null ? null : currentPrice * 1.3;
+  const referencePriceHTML = referencePrice === null
+    ? ''
+    : `<span class="price-old">De R$${referencePrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
 
   function highlight(text) {
     if (!query) return text;
@@ -253,20 +265,27 @@ function buildCard(product) {
   let priceHTML = '';
   if (pricePix && priceCard) {
     priceHTML = `
-      <div class="product-price product-price--dual">
-        <div class="price-card">
-          <span class="price-label">Cartão</span>
-          <span class="price-value">R$${priceCard}</span>
-          <span class="price-installment">ou 5x de R$${installment}</span>
-        </div>
-        <div class="price-divider">OU</div>
-        <div class="price-pix">
-          <span class="price-label">PIX</span>
-          <span class="price-value">R$${pricePix}</span>
+      <div class="product-price--promo">
+        ${referencePriceHTML}
+        <div class="product-price product-price--dual">
+          <div class="price-card">
+            <span class="price-label">Cartão</span>
+            <span class="price-value">R$${priceCard}</span>
+            <span class="price-installment">ou 5x de R$${installment}</span>
+          </div>
+          <div class="price-divider">OU</div>
+          <div class="price-pix">
+            <span class="price-label">PIX</span>
+            <span class="price-value">R$${pricePix}</span>
+          </div>
         </div>
       </div>`;
   } else {
-    priceHTML = `<div class="product-price">R$${pricePix || priceCard || 'Consultar disponibilidade'}</div>`;
+    priceHTML = `
+      <div class="product-price--promo">
+        ${referencePriceHTML}
+        <div class="product-price${currentPrice === null ? '' : ' price-new'}">R$${pricePix || priceCard || 'Consultar disponibilidade'}</div>
+      </div>`;
   }
 
   const personalizeBtn = cat === 'camisas'
@@ -277,6 +296,8 @@ function buildCard(product) {
     <article class="product-card" data-id="${id}">
       <div class="product-img-wrap" data-current="0">
         <span class="cat-tag">${CAT_LABELS[cat] ?? cat}</span>
+        <span class="promo-badge">PROMOÇÃO</span>
+        ${illustrative ? '<span class="image-note">Imagem ilustrativa</span>' : ''}
         <img
           class="product-image"
           src="${imgs[0]}"
