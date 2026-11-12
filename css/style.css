@@ -2924,6 +2924,10 @@ footer {
     min-height: 68vh;
   }
 
+  .hero-gradient {
+    opacity: 0.12;
+  }
+
   .hero-content {
     padding: 4rem 1.25rem;
   }
