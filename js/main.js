@@ -11,7 +11,7 @@ const CONFIG = {
   PER_PAGE:     12,
   WHATSAPP:     '5551997421676',
   FALLBACK_IMG: 'https://placehold.co/600x400/111111/13d203?text=Imagem+Indisponível',
-  POPUP_PRODUCT: 'Camisa Seleção Brasileira — Pré Venda',
+  POPUP_PRODUCT: 'Camisa Miami Vice Travis Scott - GTA VI Edition',
 };
 
 const CAT_LABELS = {
