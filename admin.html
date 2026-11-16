@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Sawce</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <a class="admin-brand" href="index.html">SAWCE <span>CATÁLOGO</span></a>
+    <button id="logout-button" class="admin-button admin-button--secondary" type="button" hidden>Sair</button>
+  </header>
+
+  <main class="admin-main">
+    <div id="admin-message" class="admin-message" role="status" aria-live="polite" hidden></div>
+
+    <section id="login-section" class="admin-card admin-login">
+      <h1>Admin</h1>
+      <p>Entre com uma conta autorizada para gerenciar o catálogo.</p>
+      <form id="login-form">
+        <label for="login-email">E-mail</label>
+        <input id="login-email" name="email" type="email" autocomplete="username" required />
+        <label for="login-password">Senha</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+        <button class="admin-button" type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section id="catalog-section" hidden>
+      <div class="admin-toolbar">
+        <div>
+          <h1>Produtos</h1>
+          <p>Alterações salvas aqui aparecem na loja.</p>
+        </div>
+        <button id="new-product-button" class="admin-button" type="button">Novo produto</button>
+      </div>
+
+      <div class="admin-layout">
+        <form id="product-form" class="admin-card">
+          <h2 id="form-title">Novo produto</h2>
+          <input id="product-id" name="id" type="hidden" />
+
+          <label for="product-name">Nome</label>
+          <input id="product-name" name="name" maxlength="160" required />
+
+          <label for="product-category">Categoria</label>
+          <select id="product-category" name="category" required>
+            <option value="tenis">Tênis</option>
+            <option value="camisas">Camisas</option>
+            <option value="esporte">Esporte</option>
+            <option value="outros">Outros</option>
+          </select>
+
+          <label for="product-description">Descrição</label>
+          <textarea id="product-description" name="description" rows="3" maxlength="1000" required></textarea>
+
+          <div class="admin-price-grid">
+            <div>
+              <label for="price-pix">Preço PIX (R$)</label>
+              <input id="price-pix" name="pricePix" inputmode="decimal" placeholder="Ex.: 699,99" />
+            </div>
+            <div>
+              <label for="price-card">Preço cartão (R$)</label>
+              <input id="price-card" name="priceCard" inputmode="decimal" placeholder="Ex.: 761,59" />
+            </div>
+          </div>
+
+          <label for="product-images">URLs das imagens (uma por linha, HTTPS)</label>
+          <textarea id="product-images" name="images" rows="5" required></textarea>
+
+          <label class="admin-checkbox">
+            <input id="product-illustrative" name="illustrative" type="checkbox" />
+            Imagens ilustrativas
+          </label>
+          <label class="admin-checkbox">
+            <input id="product-active" name="active" type="checkbox" checked />
+            Produto ativo na loja
+          </label>
+
+          <div class="admin-form-actions">
+            <button id="save-product-button" class="admin-button" type="submit">Criar produto</button>
+            <button id="cancel-edit-button" class="admin-button admin-button--secondary" type="button" hidden>Cancelar edição</button>
+          </div>
+        </form>
+
+        <section class="admin-card" aria-labelledby="product-list-title">
+          <h2 id="product-list-title">Catálogo</h2>
+          <div id="product-list" class="admin-product-list"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

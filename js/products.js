@@ -14,7 +14,7 @@
 // Fotos Pexels usadas como referências visuais, não como imagens exatas dos SKUs.
 const pexelsImage = (id) => `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=800&h=1000&fit=crop`;
 
-const PRODUCTS = [
+let PRODUCTS = [
 
   /* ════════════════════════════════════════════
      TÊNIS

@@ -67,6 +67,16 @@ function whatsappURL(product) {
   return `https://wa.me/${CONFIG.WHATSAPP}?text=${msg}`;
 }
 
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[character]);
+}
+
 function getFiltered() {
   const query = (els.searchInput?.value ?? '').trim().toLowerCase();
 
@@ -212,6 +222,8 @@ function updateCardImage(wrap, newIdx) {
 ───────────────────────────────────────────── */
 function buildCard(product) {
   const { id, cat, name, desc, pricePix, priceCard, imgs, illustrative } = product;
+  const safeName = escapeHTML(name);
+  const safeDesc = escapeHTML(desc);
   const query   = (els.searchInput?.value ?? '').trim();
   const hasMany = imgs.length > 1;
 
@@ -228,9 +240,10 @@ function buildCard(product) {
     : `<span class="price-old">De R$${referencePrice.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`;
 
   function highlight(text) {
-    if (!query) return text;
+    const safeText = escapeHTML(text);
+    if (!query) return safeText;
     const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    return text.replace(
+    return safeText.replace(
       new RegExp(`(${escaped})`, 'gi'),
       '<mark class="search-highlight">$1</mark>'
     );
@@ -240,8 +253,8 @@ function buildCard(product) {
     ? `<div class="color-thumbs">
         ${imgs.map((url, i) => `
           <button class="color-thumb${i === 0 ? ' selected' : ''}" data-index="${i}"
-            style="background-image:url('${url}')"
-            aria-label="Variação ${i + 1} de ${name}"></button>`
+            style="background-image:url('${escapeHTML(url)}')"
+            aria-label="Variação ${i + 1} de ${safeName}"></button>`
         ).join('')}
        </div>`
     : '';
@@ -289,21 +302,21 @@ function buildCard(product) {
   }
 
   const personalizeBtn = cat === 'camisas'
-    ? `<button class="btn-personalize" data-product="${name}" data-price="${pricePix}" title="Personalizar camisa"> Personalizar</button>`
+    ? `<button class="btn-personalize" data-product="${safeName}" data-price="${escapeHTML(pricePix ?? '')}" title="Personalizar camisa"> Personalizar</button>`
     : '';
 
   return `
     <article class="product-card" data-id="${id}">
       <div class="product-img-wrap" data-current="0">
-        <span class="cat-tag">${CAT_LABELS[cat] ?? cat}</span>
+        <span class="cat-tag">${escapeHTML(CAT_LABELS[cat] ?? cat)}</span>
         <span class="promo-badge">PROMOÇÃO</span>
         ${illustrative ? '<span class="image-note">Imagem ilustrativa</span>' : ''}
         <img
           class="product-image"
-          src="${imgs[0]}"
-          alt="${name}"
+          src="${escapeHTML(imgs[0])}"
+          alt="${safeName}"
           loading="lazy"
-          data-imgs='${JSON.stringify(imgs)}'
+          data-imgs='${escapeHTML(JSON.stringify(imgs))}'
           onerror="this.onerror=null;this.src='${CONFIG.FALLBACK_IMG}'"
         />
         ${arrowsHTML}
@@ -311,13 +324,13 @@ function buildCard(product) {
       </div>
       <div class="product-body">
         <h3 class="product-name">${highlight(name)}</h3>
-        <p class="product-desc">${desc}</p>
+        <p class="product-desc">${safeDesc}</p>
         ${priceHTML}
         ${thumbsHTML}
         <div class="product-buttons">
           ${personalizeBtn}
-          <button class="btn-buy" data-product="${name}">Quero Este!</button>
-          <button class="btn-add-cart" data-product="${name}" data-price="${pricePix}" title="Adicionar ao carrinho">🛒</button>
+          <button class="btn-buy" data-product="${safeName}">Quero Este!</button>
+          <button class="btn-add-cart" data-product="${safeName}" data-price="${escapeHTML(pricePix ?? '')}" title="Adicionar ao carrinho">🛒</button>
         </div>
       </div>
     </article>`;
@@ -524,7 +537,7 @@ function closePersonalizationModal() {
 /* ─────────────────────────────────────────────
    INIT
 ───────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initPopup();
   if (els.searchInput) {
 
@@ -622,5 +635,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   handleResize();
-  render();
+  try {
+    await window.PRODUCTS_API.load();
+    render();
+  } catch (error) {
+    console.error('Não foi possível carregar os produtos do Supabase.', error);
+    els.grid.innerHTML = `
+      <div class="search-empty" role="alert">
+        <p class="search-empty-title">Não foi possível carregar o catálogo.</p>
+        <p class="search-empty-sub">Tente novamente em alguns instantes.</p>
+      </div>`;
+  }
 });

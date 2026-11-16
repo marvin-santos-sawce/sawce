@@ -4,6 +4,16 @@
 
 'use strict';
 
+function escapeCartHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+  })[character]);
+}
+
 window.CART = {
   items: [],
 
@@ -74,14 +84,14 @@ window.CART = {
 
     cartList.innerHTML = this.items.map((item, idx) => {
       const personalizationHTML = item.personalization
-        ? `<div class="cart-item-personalization">👤 ${item.personalization.number} - ${item.personalization.name}</div>`
+        ? `<div class="cart-item-personalization">👤 ${escapeCartHTML(item.personalization.number)} - ${escapeCartHTML(item.personalization.name)}</div>`
         : '';
       return `
       <div class="cart-item">
         <div class="cart-item-info">
-          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-name">${escapeCartHTML(item.name)}</div>
           ${personalizationHTML}
-          <div class="cart-item-price">R$ ${item.pricePix}</div>
+          <div class="cart-item-price">R$ ${escapeCartHTML(item.pricePix)}</div>
         </div>
         <div class="cart-item-controls">
           <button class="cart-qty-btn" data-idx="${idx}" data-op="minus">−</button>
