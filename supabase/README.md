@@ -39,6 +39,8 @@ Reload the storefront and check that products and images load from the database.
 
 After importing the catalog, open **SQL Editor** and run [`admin-access.sql`](./admin-access.sql). This adds automatic IDs for new products, an administrator allowlist, row-level policies for writes, and a transactional save function for product details and images.
 
+To enable database-managed categories, run [`categories-migration.sql`](./categories-migration.sql) after `admin-access.sql`. It creates the categories table, seeds the four existing categories, and links products to their category without deleting existing product data. The storefront and admin category tab require this migration.
+
 Create each administrator in **Authentication → Users** (invite or add the account), then add their account to the allowlist from SQL Editor. Replace the example email with each administrator's exact account email:
 
 ```sql
@@ -51,4 +53,4 @@ on conflict do nothing;
 
 Repeat for each administrator. Only allowlisted accounts can make catalog changes; the browser never receives a secret key. Keep public sign-ups disabled if only invited staff should be able to create accounts.
 
-Open `admin.html` on the same site, sign in with an allowlisted account, and use the panel to create, edit, activate/deactivate, or remove products. The panel session is kept in memory, so a page reload requires signing in again.
+Open `admin.html` on the same site, sign in with an allowlisted account, and use the panel to create, edit, activate/deactivate, or remove products, and to create or rename categories. Categories cannot be deleted while products still use them. The panel session is kept in memory, so a page reload requires signing in again.

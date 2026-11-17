@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin Sawce</title>
+  <title>Painel administrativo — Sawce Company</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,90 +12,227 @@
   <link rel="stylesheet" href="css/admin.css" />
 </head>
 <body class="admin-page">
-  <header class="admin-header">
-    <a class="admin-brand" href="index.html">SAWCE <span>CATÁLOGO</span></a>
-    <button id="logout-button" class="admin-button admin-button--secondary" type="button" hidden>Sair</button>
-  </header>
+  <div id="admin-message" class="admin-toast" role="status" aria-live="polite" hidden>
+    <span id="admin-message-text"></span>
+    <button id="admin-message-close" type="button" aria-label="Fechar notificação">×</button>
+  </div>
 
-  <main class="admin-main">
-    <div id="admin-message" class="admin-message" role="status" aria-live="polite" hidden></div>
-
-    <section id="login-section" class="admin-card admin-login">
-      <h1>Admin</h1>
+  <section id="login-section" class="admin-login-screen">
+    <a class="admin-brand admin-brand--login" href="index.html">SAWCE <span>ADMIN</span></a>
+    <div class="admin-login-card">
+      <div class="admin-login-mark" aria-hidden="true">S</div>
+      <h1>Acesso administrativo</h1>
       <p>Entre com uma conta autorizada para gerenciar o catálogo.</p>
       <form id="login-form">
         <label for="login-email">E-mail</label>
-        <input id="login-email" name="email" type="email" autocomplete="username" required />
+        <input id="login-email" name="email" type="email" autocomplete="username" placeholder="voce@empresa.com" required />
         <label for="login-password">Senha</label>
-        <input id="login-password" name="password" type="password" autocomplete="current-password" required />
-        <button class="admin-button" type="submit">Entrar</button>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Sua senha" required />
+        <button class="admin-button admin-button--primary admin-login-submit" type="submit">Entrar no painel <span aria-hidden="true">→</span></button>
       </form>
-    </section>
+      <a class="admin-back-store" href="index.html">← Voltar para a loja</a>
+    </div>
+    <p class="admin-login-footnote">SAWCE COMPANY · GESTÃO DE CATÁLOGO</p>
+  </section>
 
-    <section id="catalog-section" hidden>
-      <div class="admin-toolbar">
+  <div id="admin-app" class="admin-shell" hidden>
+    <aside class="admin-sidebar">
+      <a class="admin-brand" href="index.html">SAWCE <span>ADMIN</span></a>
+      <nav class="admin-nav" aria-label="Navegação administrativa">
+        <button class="admin-nav-item is-active" type="button" data-view="products">
+          <span aria-hidden="true">◆</span> Produtos
+        </button>
+        <button class="admin-nav-item" type="button" data-view="categories">
+          <span aria-hidden="true">▰</span> Categorias
+        </button>
+        <a class="admin-nav-item" href="index.html"><span aria-hidden="true">↗</span> Ver loja</a>
+      </nav>
+      <button id="logout-button" class="admin-logout" type="button"><span aria-hidden="true">↪</span> Sair</button>
+    </aside>
+
+    <div class="admin-workspace">
+      <header class="admin-topbar">
         <div>
-          <h1>Produtos</h1>
-          <p>Alterações salvas aqui aparecem na loja.</p>
+          <span class="admin-eyebrow">SAWCE COMPANY</span>
+          <h1>Painel administrativo</h1>
         </div>
-        <button id="new-product-button" class="admin-button" type="button">Novo produto</button>
-      </div>
+        <div class="admin-user">
+          <span class="admin-user-avatar" aria-hidden="true">A</span>
+          <span><strong>Admin</strong><small>Administrador</small></span>
+        </div>
+      </header>
 
-      <div class="admin-layout">
-        <form id="product-form" class="admin-card">
-          <h2 id="form-title">Novo produto</h2>
-          <input id="product-id" name="id" type="hidden" />
-
-          <label for="product-name">Nome</label>
-          <input id="product-name" name="name" maxlength="160" required />
-
-          <label for="product-category">Categoria</label>
-          <select id="product-category" name="category" required>
-            <option value="tenis">Tênis</option>
-            <option value="camisas">Camisas</option>
-            <option value="esporte">Esporte</option>
-            <option value="outros">Outros</option>
-          </select>
-
-          <label for="product-description">Descrição</label>
-          <textarea id="product-description" name="description" rows="3" maxlength="1000" required></textarea>
-
-          <div class="admin-price-grid">
-            <div>
-              <label for="price-pix">Preço PIX (R$)</label>
-              <input id="price-pix" name="pricePix" inputmode="decimal" placeholder="Ex.: 699,99" />
+      <main class="admin-main">
+        <section id="catalog-section" class="admin-view" hidden>
+          <div id="products-view">
+            <div class="admin-page-heading">
+              <div>
+                <h2>Gerenciamento de produtos</h2>
+                <p>Cadastre, edite e organize os produtos do catálogo.</p>
+              </div>
+              <button id="new-product-button" class="admin-button admin-button--primary" type="button">
+                <span aria-hidden="true">＋</span> Novo produto
+              </button>
             </div>
-            <div>
-              <label for="price-card">Preço cartão (R$)</label>
-              <input id="price-card" name="priceCard" inputmode="decimal" placeholder="Ex.: 761,59" />
+
+            <div class="admin-filterbar">
+              <form id="search-form" class="admin-search">
+                <label class="visually-hidden" for="product-search">Buscar produtos</label>
+                <input id="product-search" type="search" placeholder="Buscar por nome ou descrição..." />
+                <button class="admin-button admin-button--secondary" type="submit">Buscar</button>
+              </form>
+              <div class="admin-category-filter">
+                <label for="category-filter">Filtrar por categoria</label>
+                <select id="category-filter">
+                  <option value="all">Todas as categorias</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="admin-table-card">
+              <div class="admin-table-scroll">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Imagem</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Preço PIX</th>
+                      <th scope="col">Preço cartão</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="product-list"></tbody>
+                </table>
+              </div>
+              <p id="products-empty" class="admin-empty" hidden>Nenhum produto encontrado.</p>
             </div>
           </div>
 
-          <label for="product-images">URLs das imagens (uma por linha, HTTPS)</label>
-          <textarea id="product-images" name="images" rows="5" required></textarea>
+          <section id="product-editor-view" class="admin-editor-view" hidden>
+            <div class="admin-editor-heading">
+              <div>
+                <span class="admin-eyebrow">CATÁLOGO</span>
+                <h2 id="form-title">Novo produto</h2>
+                <p>Preencha as informações para adicionar um produto à loja.</p>
+              </div>
+              <button id="cancel-edit-button" class="admin-button admin-button--secondary" type="button">← Voltar</button>
+            </div>
 
-          <label class="admin-checkbox">
-            <input id="product-illustrative" name="illustrative" type="checkbox" />
-            Imagens ilustrativas
-          </label>
-          <label class="admin-checkbox">
-            <input id="product-active" name="active" type="checkbox" checked />
-            Produto ativo na loja
-          </label>
+            <form id="product-form" class="admin-editor-card">
+              <input id="product-id" name="id" type="hidden" />
+              <div class="admin-form-grid">
+                <div class="admin-field">
+                  <label for="product-name">Nome do produto</label>
+                  <input id="product-name" name="name" maxlength="160" placeholder="Ex.: Camiseta Sawce Premium" required />
+                </div>
+                <div class="admin-field">
+                  <label for="product-category">Categoria</label>
+                  <select id="product-category" name="category" required>
+                  </select>
+                </div>
+                <div class="admin-field admin-field--full">
+                  <label for="product-description">Descrição</label>
+                  <textarea id="product-description" name="description" rows="3" maxlength="1000" placeholder="Descreva detalhes como material, caimento e tamanho..." required></textarea>
+                </div>
+                <div class="admin-field">
+                  <label for="price-pix">Preço no PIX (R$)</label>
+                  <input id="price-pix" name="pricePix" inputmode="decimal" placeholder="0,00" />
+                </div>
+                <div class="admin-field">
+                  <label for="price-card">Preço no cartão (R$)</label>
+                  <input id="price-card" name="priceCard" inputmode="decimal" placeholder="Calculado automaticamente" readonly aria-describedby="card-price-help" />
+                  <small id="card-price-help" class="admin-field-help">PIX + 5,5% · calculado automaticamente</small>
+                </div>
+                <div class="admin-field admin-field--full">
+                  <label for="product-images">Imagens do produto</label>
+                  <textarea id="product-images" name="images" rows="4" placeholder="Cole uma URL HTTPS por linha" required></textarea>
+                  <small class="admin-field-help">Use links diretos para imagens. Cole uma URL HTTPS por linha.</small>
+                </div>
+                <label class="admin-toggle">
+                  <input id="product-illustrative" name="illustrative" type="checkbox" />
+                  <span><strong>Imagem ilustrativa</strong><small>Identifica imagens que não representam exatamente o produto.</small></span>
+                </label>
+                <label class="admin-toggle">
+                  <input id="product-active" name="active" type="checkbox" checked />
+                  <span><strong>Produto ativo</strong><small>Produtos ativos aparecem na loja.</small></span>
+                </label>
+              </div>
+              <div class="admin-editor-footer">
+                <button id="save-product-button" class="admin-button admin-button--primary" type="submit">Salvar produto</button>
+              </div>
+            </form>
+          </section>
 
-          <div class="admin-form-actions">
-            <button id="save-product-button" class="admin-button" type="submit">Criar produto</button>
-            <button id="cancel-edit-button" class="admin-button admin-button--secondary" type="button" hidden>Cancelar edição</button>
-          </div>
-        </form>
+          <section id="categories-view" class="admin-category-view" hidden>
+            <div class="admin-page-heading">
+              <div>
+                <h2>Gerenciamento de categorias</h2>
+                <p>Crie e organize categorias para classificar os produtos.</p>
+              </div>
+              <button id="new-category-button" class="admin-button admin-button--primary" type="button">
+                <span aria-hidden="true">＋</span> Nova categoria
+              </button>
+            </div>
 
-        <section class="admin-card" aria-labelledby="product-list-title">
-          <h2 id="product-list-title">Catálogo</h2>
-          <div id="product-list" class="admin-product-list"></div>
+            <form id="category-form" class="admin-category-form" hidden>
+              <div>
+                <span class="admin-eyebrow">CATÁLOGO</span>
+                <h3 id="category-form-title">Nova categoria</h3>
+              </div>
+              <div class="admin-category-fields">
+                <div class="admin-field">
+                  <label for="category-name">Nome da categoria</label>
+                  <input id="category-name" name="name" maxlength="60" placeholder="Ex.: Acessórios" required />
+                </div>
+                <div class="admin-field">
+                  <label for="category-slug">Identificador (slug)</label>
+                  <input id="category-slug" name="slug" maxlength="60" placeholder="gerado-automaticamente" readonly />
+                  <small class="admin-field-help">Usado internamente nos produtos.</small>
+                </div>
+              </div>
+              <div class="admin-category-form-actions">
+                <button id="save-category-button" class="admin-button admin-button--primary" type="submit">Criar categoria</button>
+                <button id="cancel-category-button" class="admin-button admin-button--secondary" type="button">Cancelar</button>
+              </div>
+            </form>
+
+            <div class="admin-table-card">
+              <div class="admin-table-scroll">
+                <table class="admin-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Slug</th>
+                      <th scope="col">Produtos</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="category-list"></tbody>
+                </table>
+              </div>
+              <p id="categories-empty" class="admin-empty" hidden>Nenhuma categoria cadastrada.</p>
+            </div>
+          </section>
         </section>
-      </div>
-    </section>
-  </main>
+      </main>
+    </div>
+  </div>
+
+  <dialog id="delete-dialog" class="admin-confirm-dialog" aria-labelledby="delete-dialog-title">
+    <div class="admin-confirm-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path d="M4 7h16M10 11v6m4-6v6M6 7l1 13h10l1-13M9 7V4h6v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2 id="delete-dialog-title">Remover item?</h2>
+    <p id="delete-dialog-message"></p>
+    <div class="admin-confirm-actions">
+      <button id="cancel-delete-button" class="admin-button admin-button--secondary" type="button">Cancelar</button>
+      <button id="confirm-delete-button" class="admin-button admin-button--danger-text" type="button">Remover</button>
+    </div>
+  </dialog>
 
   <script src="js/supabase-config.js"></script>
   <script src="js/admin.js"></script>

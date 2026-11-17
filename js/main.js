@@ -14,7 +14,7 @@ const CONFIG = {
   POPUP_PRODUCT: 'Camisa Miami Vice Travis Scott - GTA VI Edition',
 };
 
-const CAT_LABELS = {
+let CAT_LABELS = {
   tenis:   'Tênis',
   camisas: 'Camisa de time',
   esporte: 'Esporte',
@@ -75,6 +75,19 @@ function escapeHTML(value) {
     '"': '&quot;',
     "'": '&#39;',
   })[character]);
+}
+
+function renderCategoryFilters() {
+  const categories = window.PRODUCT_CATEGORIES ?? Object.entries(CAT_LABELS)
+    .map(([slug, name]) => ({ slug, name }));
+
+  CAT_LABELS = Object.fromEntries(categories.map(category => [category.slug, category.name]));
+  els.filters.innerHTML = [
+    '<button class="filter-pill active" data-cat="all">Todos</button>',
+    ...categories.map(category =>
+      `<button class="filter-pill" data-cat="${escapeHTML(category.slug)}">${escapeHTML(category.name)}</button>`
+    ),
+  ].join('');
 }
 
 function getFiltered() {
@@ -637,6 +650,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   handleResize();
   try {
     await window.PRODUCTS_API.load();
+    renderCategoryFilters();
     render();
   } catch (error) {
     console.error('Não foi possível carregar os produtos do Supabase.', error);

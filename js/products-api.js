@@ -1,5 +1,12 @@
 'use strict';
 
+window.PRODUCT_CATEGORIES = [
+  { slug: 'tenis', name: 'Tênis' },
+  { slug: 'camisas', name: 'Camisa de time' },
+  { slug: 'esporte', name: 'Esporte' },
+  { slug: 'outros', name: 'Outros' },
+];
+
 window.PRODUCTS_API = {
   async load() {
     const { url, publishableKey } = window.SUPABASE_CONFIG;
@@ -10,25 +17,36 @@ window.PRODUCTS_API = {
     }
 
     const baseUrl = url.replace(/\/+$/, '');
-    const query = new URLSearchParams({
+    const productsQuery = new URLSearchParams({
       select: 'id,category,name,description,price_pix_cents,price_card_cents,illustrative,product_images(url,position)',
       is_active: 'eq.true',
       order: 'id.asc',
     });
-    const response = await fetch(`${baseUrl}/rest/v1/products?${query}`, {
-      headers: { apikey: publishableKey },
-    });
+    const headers = { apikey: publishableKey };
+    const [productsResponse, categoriesResponse] = await Promise.all([
+      fetch(`${baseUrl}/rest/v1/products?${productsQuery}`, { headers }),
+      fetch(`${baseUrl}/rest/v1/categories?select=slug,name&order=name.asc`, { headers }),
+    ]);
 
-    if (!response.ok) {
-      const details = await response.text();
-      throw new Error(`Supabase respondeu ${response.status}: ${details}`);
+    if (!productsResponse.ok) {
+      const details = await productsResponse.text();
+      throw new Error(`Supabase respondeu ${productsResponse.status}: ${details}`);
+    }
+    if (!categoriesResponse.ok) {
+      const details = await categoriesResponse.text();
+      throw new Error(`Não foi possível carregar categorias (${categoriesResponse.status}): ${details}`);
     }
 
-    const rows = await response.json();
-    if (!Array.isArray(rows)) {
+    const rows = await productsResponse.json();
+    const categories = await categoriesResponse.json();
+    if (!Array.isArray(rows) || !Array.isArray(categories)) {
       throw new Error('A resposta do Supabase não contém uma lista de produtos.');
     }
+    if (categories.some(category => typeof category.slug !== 'string' || typeof category.name !== 'string')) {
+      throw new Error('O banco retornou uma categoria inválida.');
+    }
 
+    window.PRODUCT_CATEGORIES = categories;
     PRODUCTS = rows.map(product => {
       const images = (product.product_images ?? [])
         .sort((a, b) => a.position - b.position)
